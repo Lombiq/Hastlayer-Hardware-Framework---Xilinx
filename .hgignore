@@ -1,0 +1,76 @@
+# use glob syntax.
+syntax: glob
+
+# Vivado files (mostly)
+*.jou
+*.log
+*.rpt
+*.str
+*.wdf
+*.xpr
+
+# Vivado folders
+*.cache/
+*.runs/
+.Xil/
+webtalk/
+
+# Xilinx SDK (i.e. mostly Eclipse) files
+*.bit
+*.dmp
+*.history
+*.index
+*.lock
+*.pdom
+*.snap
+*.o
+*.a
+*.tmp
+*.tree
+*.version
+dialog_settings.xml
+refactorings.index
+
+# Xilinx SDK (i.e. mostly Eclipse) folders
+Debug/
+RemoteSystemsTempFiles
+.settings/
+
+# Modelsim folders
+_opt
+_opt1
+_temp
+
+# Compilation output of ModelSim
+*.mti                                  
+*.dat                                  
+*.dbs                                  
+*.psm                                  
+*.bak                                  
+*.cmp                                  
+*.jpg                                  
+*.html                                 
+*.bsf                                  
+                                       
+# Simulation output of ModelSim 
+wlf*                                   
+*.wlf                                  
+*.vstf                                 
+*.ucdb                                 
+cov*/                                  
+transcript*                            
+sc_dpiheader.h                         
+vsim.dbg   
+
+# Others
+*.bak
+
+# Generated project directory
+syntax: regexp
+^Project/(.*)
+# SDK
+^SDK/.metadata/(.*)
+^SDK/Hastlayer_wrapper_hw_platform_(.*)
+^SDK/Hastlayer_bsp/(?!system\.mss$)(.*)
+^SDK/Hastlayer_wrapper.hdf
+^SDKImport/(.*)

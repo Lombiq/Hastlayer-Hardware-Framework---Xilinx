@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Test_Hast_IP_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Test_Hast_IP" />
+            <top_module name="simplememory" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="20000000001fs"></ZoomEndTime>
+      <Cursor1Time time="20000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="79" />
+   <wvobject type="divider" fp_name="divider14">
+      <obj_property name="label">Test_Hast_IP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/DataIn" type="array">
+      <obj_property name="ElementShortName">DataIn[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DataIn[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/Started" type="other">
+      <obj_property name="ElementShortName">Started</obj_property>
+      <obj_property name="ObjectShortName">Started</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/ReadsDone" type="other">
+      <obj_property name="ElementShortName">ReadsDone</obj_property>
+      <obj_property name="ObjectShortName">ReadsDone</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/WritesDone" type="other">
+      <obj_property name="ElementShortName">WritesDone</obj_property>
+      <obj_property name="ObjectShortName">WritesDone</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/ReadEnable" type="other">
+      <obj_property name="ElementShortName">ReadEnable</obj_property>
+      <obj_property name="ObjectShortName">ReadEnable</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/WriteEnable" type="other">
+      <obj_property name="ElementShortName">WriteEnable</obj_property>
+      <obj_property name="ObjectShortName">WriteEnable</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/DataOut" type="array">
+      <obj_property name="ElementShortName">DataOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DataOut[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/Finished" type="other">
+      <obj_property name="ElementShortName">Finished</obj_property>
+      <obj_property name="ObjectShortName">Finished</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/MemberId" type="other">
+      <obj_property name="ElementShortName">MemberId</obj_property>
+      <obj_property name="ObjectShortName">MemberId</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/Cnt" type="array">
+      <obj_property name="ElementShortName">Cnt[63:0]</obj_property>
+      <obj_property name="ObjectShortName">Cnt[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/sig_hast_performance" type="array">
+      <obj_property name="ElementShortName">sig_hast_performance[63:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_hast_performance[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider15">
+      <obj_property name="label">UUT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\Clock\" type="logic">
+      <obj_property name="ElementShortName">\Clock\</obj_property>
+      <obj_property name="ObjectShortName">\Clock\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\Reset\" type="logic">
+      <obj_property name="ElementShortName">\Reset\</obj_property>
+      <obj_property name="ObjectShortName">\Reset\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\CellIndex\" type="other">
+      <obj_property name="ElementShortName">\CellIndex\</obj_property>
+      <obj_property name="ObjectShortName">\CellIndex\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\MemberId\" type="other">
+      <obj_property name="ElementShortName">\MemberId\</obj_property>
+      <obj_property name="ObjectShortName">\MemberId\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\DataIn\" type="array">
+      <obj_property name="ElementShortName">\DataIn\[31:0]</obj_property>
+      <obj_property name="ObjectShortName">\DataIn\[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\DataOut\" type="array">
+      <obj_property name="ElementShortName">\DataOut\[31:0]</obj_property>
+      <obj_property name="ObjectShortName">\DataOut\[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\ReadEnable\" type="other">
+      <obj_property name="ElementShortName">\ReadEnable\</obj_property>
+      <obj_property name="ObjectShortName">\ReadEnable\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\WriteEnable\" type="other">
+      <obj_property name="ElementShortName">\WriteEnable\</obj_property>
+      <obj_property name="ObjectShortName">\WriteEnable\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\Started\" type="other">
+      <obj_property name="ElementShortName">\Started\</obj_property>
+      <obj_property name="ObjectShortName">\Started\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\Finished\" type="other">
+      <obj_property name="ElementShortName">\Finished\</obj_property>
+      <obj_property name="ObjectShortName">\Finished\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\ReadsDone\" type="other">
+      <obj_property name="ElementShortName">\ReadsDone\</obj_property>
+      <obj_property name="ObjectShortName">\ReadsDone\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\WritesDone\" type="other">
+      <obj_property name="ElementShortName">\WritesDone\</obj_property>
+      <obj_property name="ObjectShortName">\WritesDone\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\number.param\" type="other">
+      <obj_property name="ElementShortName">\number.param\</obj_property>
+      <obj_property name="ObjectShortName">\number.param\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/IsPrimenum_number_param" type="other">
+      <obj_property name="ElementShortName">IsPrimenum_number_param</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_number_param</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/ArePrimenums_number_param" type="other">
+      <obj_property name="ElementShortName">ArePrimenums_number_param</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_number_param</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\number.iter\" type="other">
+      <obj_property name="ElementShortName">\number.iter\</obj_property>
+      <obj_property name="ObjectShortName">\number.iter\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\result\" type="logic">
+      <obj_property name="ElementShortName">\result\</obj_property>
+      <obj_property name="ObjectShortName">\result\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\result_0\" type="logic">
+      <obj_property name="ElementShortName">\result_0\</obj_property>
+      <obj_property name="ObjectShortName">\result_0\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\result_1\" type="logic">
+      <obj_property name="ElementShortName">\result_1\</obj_property>
+      <obj_property name="ObjectShortName">\result_1\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\result_2\" type="logic">
+      <obj_property name="ElementShortName">\result_2\</obj_property>
+      <obj_property name="ObjectShortName">\result_2\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\PrimeCalcDataOut_0\" type="logic">
+      <obj_property name="ElementShortName">\PrimeCalcDataOut_0\</obj_property>
+      <obj_property name="ObjectShortName">\PrimeCalcDataOut_0\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\PrimeCalcDataOut_1\" type="logic">
+      <obj_property name="ElementShortName">\PrimeCalcDataOut_1\</obj_property>
+      <obj_property name="ObjectShortName">\PrimeCalcDataOut_1\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\PrimeCalcDataOut_2\" type="logic">
+      <obj_property name="ElementShortName">\PrimeCalcDataOut_2\</obj_property>
+      <obj_property name="ObjectShortName">\PrimeCalcDataOut_2\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\Primecalc_result_0\" type="logic">
+      <obj_property name="ElementShortName">\Primecalc_result_0\</obj_property>
+      <obj_property name="ObjectShortName">\Primecalc_result_0\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\Primecalc_result_1\" type="logic">
+      <obj_property name="ElementShortName">\Primecalc_result_1\</obj_property>
+      <obj_property name="ObjectShortName">\Primecalc_result_1\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\Primecalc_result_2\" type="logic">
+      <obj_property name="ElementShortName">\Primecalc_result_2\</obj_property>
+      <obj_property name="ObjectShortName">\Primecalc_result_2\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\num_incr\" type="other">
+      <obj_property name="ElementShortName">\num_incr\</obj_property>
+      <obj_property name="ObjectShortName">\num_incr\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/StartPrimeCalculator_0" type="logic">
+      <obj_property name="ElementShortName">StartPrimeCalculator_0</obj_property>
+      <obj_property name="ObjectShortName">StartPrimeCalculator_0</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/StartPrimeCalculator_1" type="logic">
+      <obj_property name="ElementShortName">StartPrimeCalculator_1</obj_property>
+      <obj_property name="ObjectShortName">StartPrimeCalculator_1</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/StartPrimeCalculator_2" type="logic">
+      <obj_property name="ElementShortName">StartPrimeCalculator_2</obj_property>
+      <obj_property name="ObjectShortName">StartPrimeCalculator_2</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/Primecalc_Finished_0" type="logic">
+      <obj_property name="ElementShortName">Primecalc_Finished_0</obj_property>
+      <obj_property name="ObjectShortName">Primecalc_Finished_0</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/Primecalc_Finished_1" type="logic">
+      <obj_property name="ElementShortName">Primecalc_Finished_1</obj_property>
+      <obj_property name="ObjectShortName">Primecalc_Finished_1</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/Primecalc_Finished_2" type="logic">
+      <obj_property name="ElementShortName">Primecalc_Finished_2</obj_property>
+      <obj_property name="ObjectShortName">Primecalc_Finished_2</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/IsPrimenum_ReadEna" type="other">
+      <obj_property name="ElementShortName">IsPrimenum_ReadEna</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_ReadEna</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/IsPrimenum_ReadAddr" type="other">
+      <obj_property name="ElementShortName">IsPrimenum_ReadAddr</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_ReadAddr</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/IsPrimenum_WriteEna" type="other">
+      <obj_property name="ElementShortName">IsPrimenum_WriteEna</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_WriteEna</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/IsPrimenum_WriteAddr" type="other">
+      <obj_property name="ElementShortName">IsPrimenum_WriteAddr</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_WriteAddr</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/IsPrimenum_DataOut" type="array">
+      <obj_property name="ElementShortName">IsPrimenum_DataOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_DataOut[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/IsPrimenum_Finish" type="other">
+      <obj_property name="ElementShortName">IsPrimenum_Finish</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_Finish</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/IsPrimenum_StartPrimeCalc_0" type="logic">
+      <obj_property name="ElementShortName">IsPrimenum_StartPrimeCalc_0</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_StartPrimeCalc_0</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/IsPrimenum_StartPrimeCalc_1" type="logic">
+      <obj_property name="ElementShortName">IsPrimenum_StartPrimeCalc_1</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_StartPrimeCalc_1</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/IsPrimenum_StartPrimeCalc_2" type="logic">
+      <obj_property name="ElementShortName">IsPrimenum_StartPrimeCalc_2</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_StartPrimeCalc_2</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/IsPrimenum_Primecalc_instance" type="array">
+      <obj_property name="ElementShortName">IsPrimenum_Primecalc_instance[7:0]</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_Primecalc_instance[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/IsPrimenum_FinishedPrimecalc" type="logic">
+      <obj_property name="ElementShortName">IsPrimenum_FinishedPrimecalc</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_FinishedPrimecalc</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/ArePrimenums_ReadEna" type="other">
+      <obj_property name="ElementShortName">ArePrimenums_ReadEna</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_ReadEna</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/ArePrimenums_ReadAddr" type="other">
+      <obj_property name="ElementShortName">ArePrimenums_ReadAddr</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_ReadAddr</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/ArePrimenums_WriteEna" type="other">
+      <obj_property name="ElementShortName">ArePrimenums_WriteEna</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_WriteEna</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/ArePrimenums_WriteAddr" type="other">
+      <obj_property name="ElementShortName">ArePrimenums_WriteAddr</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_WriteAddr</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/ArePrimenums_DataOut" type="array">
+      <obj_property name="ElementShortName">ArePrimenums_DataOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_DataOut[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/ArePrimenums_Finish" type="other">
+      <obj_property name="ElementShortName">ArePrimenums_Finish</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_Finish</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/ArePrimenums_StartPrimeCalc_0" type="logic">
+      <obj_property name="ElementShortName">ArePrimenums_StartPrimeCalc_0</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_StartPrimeCalc_0</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/ArePrimenums_StartPrimeCalc_1" type="logic">
+      <obj_property name="ElementShortName">ArePrimenums_StartPrimeCalc_1</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_StartPrimeCalc_1</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/ArePrimenums_StartPrimeCalc_2" type="logic">
+      <obj_property name="ElementShortName">ArePrimenums_StartPrimeCalc_2</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_StartPrimeCalc_2</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/ArePrimenums_Primecalc_instance" type="array">
+      <obj_property name="ElementShortName">ArePrimenums_Primecalc_instance[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_Primecalc_instance[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/ArePrimenums_FinishedPrimecalc" type="logic">
+      <obj_property name="ElementShortName">ArePrimenums_FinishedPrimecalc</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_FinishedPrimecalc</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\PC0_num2\" type="other">
+      <obj_property name="ElementShortName">\PC0_num2\</obj_property>
+      <obj_property name="ObjectShortName">\PC0_num2\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\PC0_num\" type="other">
+      <obj_property name="ElementShortName">\PC0_num\</obj_property>
+      <obj_property name="ObjectShortName">\PC0_num\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\PC0_number\" type="other">
+      <obj_property name="ElementShortName">\PC0_number\</obj_property>
+      <obj_property name="ObjectShortName">\PC0_number\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\PC0_PrimeCalcDataIn\" type="other">
+      <obj_property name="ElementShortName">\PC0_PrimeCalcDataIn\</obj_property>
+      <obj_property name="ObjectShortName">\PC0_PrimeCalcDataIn\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/\PC0_op\" type="other">
+      <obj_property name="ElementShortName">\PC0_op\</obj_property>
+      <obj_property name="ObjectShortName">\PC0_op\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/state_SM_Primecalculator_0" type="other">
+      <obj_property name="ElementShortName">state_SM_Primecalculator_0</obj_property>
+      <obj_property name="ObjectShortName">state_SM_Primecalculator_0</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/state_SM_Primecalculator_1" type="other">
+      <obj_property name="ElementShortName">state_SM_Primecalculator_1</obj_property>
+      <obj_property name="ObjectShortName">state_SM_Primecalculator_1</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/state_SM_Primecalculator_2" type="other">
+      <obj_property name="ElementShortName">state_SM_Primecalculator_2</obj_property>
+      <obj_property name="ObjectShortName">state_SM_Primecalculator_2</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/state_SM_IsPrimeNumber" type="other">
+      <obj_property name="ElementShortName">state_SM_IsPrimeNumber</obj_property>
+      <obj_property name="ObjectShortName">state_SM_IsPrimeNumber</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP/UUT/state_SM_ArePrimeNumbers" type="other">
+      <obj_property name="ElementShortName">state_SM_ArePrimeNumbers</obj_property>
+      <obj_property name="ObjectShortName">state_SM_ArePrimeNumbers</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>

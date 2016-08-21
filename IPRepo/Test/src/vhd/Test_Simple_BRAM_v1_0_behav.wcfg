@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Test_Simple_BRAM_v1_0_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Test_Simple_BRAM_v1_0" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="81" />
+   <wvobject type="divider" fp_name="divider83">
+      <obj_property name="label">Test_Simple_BRAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/Clock" type="logic">
+      <obj_property name="ElementShortName">Clock</obj_property>
+      <obj_property name="ObjectShortName">Clock</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/Counter_Ena" type="logic">
+      <obj_property name="ElementShortName">Counter_Ena</obj_property>
+      <obj_property name="ObjectShortName">Counter_Ena</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/Counter_Load" type="logic">
+      <obj_property name="ElementShortName">Counter_Load</obj_property>
+      <obj_property name="ObjectShortName">Counter_Load</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/Counter_Data_in" type="array">
+      <obj_property name="ElementShortName">Counter_Data_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Counter_Data_in[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/Counter_Data_Out" type="array">
+      <obj_property name="ElementShortName">Counter_Data_Out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Counter_Data_Out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/Rst_Counter" type="logic">
+      <obj_property name="ElementShortName">Rst_Counter</obj_property>
+      <obj_property name="ObjectShortName">Rst_Counter</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/Reset_Counter" type="logic">
+      <obj_property name="ElementShortName">Reset_Counter</obj_property>
+      <obj_property name="ObjectShortName">Reset_Counter</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/DataIn" type="array">
+      <obj_property name="ElementShortName">DataIn[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DataIn[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/DataOut" type="array">
+      <obj_property name="ElementShortName">DataOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DataOut[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/WriteAddress" type="array">
+      <obj_property name="ElementShortName">WriteAddress[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WriteAddress[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/ReadAddress" type="array">
+      <obj_property name="ElementShortName">ReadAddress[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ReadAddress[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/ReadEnable" type="logic">
+      <obj_property name="ElementShortName">ReadEnable</obj_property>
+      <obj_property name="ObjectShortName">ReadEnable</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/WriteEnable" type="logic">
+      <obj_property name="ElementShortName">WriteEnable</obj_property>
+      <obj_property name="ObjectShortName">WriteEnable</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/Wena" type="array">
+      <obj_property name="ElementShortName">Wena[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Wena[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_ARESETN" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARESETN</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARESETN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_AWADDR" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_AWPROT" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_AWVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_AWREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_WDATA" type="array">
+      <obj_property name="ElementShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_WSTRB" type="array">
+      <obj_property name="ElementShortName">M_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_WVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_WREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_BRESP" type="array">
+      <obj_property name="ElementShortName">M_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_BVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_BREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_ARADDR" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_ARVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_ARREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_RDATA" type="array">
+      <obj_property name="ElementShortName">M_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_RRESP" type="array">
+      <obj_property name="ElementShortName">M_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_RVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/M_AXI_RREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/state_BRAM" type="other">
+      <obj_property name="ElementShortName">state_BRAM</obj_property>
+      <obj_property name="ObjectShortName">state_BRAM</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/next_state_BRAM" type="other">
+      <obj_property name="ElementShortName">next_state_BRAM</obj_property>
+      <obj_property name="ObjectShortName">next_state_BRAM</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/Clock_period" type="other">
+      <obj_property name="ElementShortName">Clock_period</obj_property>
+      <obj_property name="ObjectShortName">Clock_period</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/Clock_periodDiv2" type="other">
+      <obj_property name="ElementShortName">Clock_periodDiv2</obj_property>
+      <obj_property name="ObjectShortName">Clock_periodDiv2</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/Counter_width" type="other">
+      <obj_property name="ElementShortName">Counter_width</obj_property>
+      <obj_property name="ObjectShortName">Counter_width</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/C_M_AXI_ADDR_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_M_AXI_ADDR_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_M_AXI_ADDR_WIDTH</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/C_M_AXI_DATA_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_M_AXI_DATA_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_M_AXI_DATA_WIDTH</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider122">
+      <obj_property name="label">Simple_BRAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_ACLK" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ACLK</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ACLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_ARESETN" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ARESETN</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARESETN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_AWADDR" type="array">
+      <obj_property name="ElementShortName">S_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_AWPROT" type="array">
+      <obj_property name="ElementShortName">S_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_AWVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_AWREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_WDATA" type="array">
+      <obj_property name="ElementShortName">S_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_WSTRB" type="array">
+      <obj_property name="ElementShortName">S_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_WVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_WREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_BRESP" type="array">
+      <obj_property name="ElementShortName">S_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_BVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_BREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_ARADDR" type="array">
+      <obj_property name="ElementShortName">S_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_ARPROT" type="array">
+      <obj_property name="ElementShortName">S_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_ARVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_ARREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_RDATA" type="array">
+      <obj_property name="ElementShortName">S_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_RRESP" type="array">
+      <obj_property name="ElementShortName">S_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_RVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_RREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/axi_awaddr" type="array">
+      <obj_property name="ElementShortName">axi_awaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_awaddr[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/axi_awready" type="logic">
+      <obj_property name="ElementShortName">axi_awready</obj_property>
+      <obj_property name="ObjectShortName">axi_awready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/axi_wready" type="logic">
+      <obj_property name="ElementShortName">axi_wready</obj_property>
+      <obj_property name="ObjectShortName">axi_wready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/axi_bresp" type="array">
+      <obj_property name="ElementShortName">axi_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bresp[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/axi_bvalid" type="logic">
+      <obj_property name="ElementShortName">axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/axi_araddr" type="array">
+      <obj_property name="ElementShortName">axi_araddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_araddr[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/axi_arready" type="logic">
+      <obj_property name="ElementShortName">axi_arready</obj_property>
+      <obj_property name="ObjectShortName">axi_arready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/axi_rdata" type="array">
+      <obj_property name="ElementShortName">axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_rdata[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/axi_rresp" type="array">
+      <obj_property name="ElementShortName">axi_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_rresp[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/axi_rvalid" type="logic">
+      <obj_property name="ElementShortName">axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/ram" type="array">
+      <obj_property name="ElementShortName">ram[0:255][31:0]</obj_property>
+      <obj_property name="ObjectShortName">ram[0:255][31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/readaddress_int" type="other">
+      <obj_property name="ElementShortName">readaddress_int</obj_property>
+      <obj_property name="ObjectShortName">readaddress_int</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/writeaddress_int" type="other">
+      <obj_property name="ElementShortName">writeaddress_int</obj_property>
+      <obj_property name="ObjectShortName">writeaddress_int</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/bram_readena" type="logic">
+      <obj_property name="ElementShortName">bram_readena</obj_property>
+      <obj_property name="ObjectShortName">bram_readena</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/bram_writeena" type="logic">
+      <obj_property name="ElementShortName">bram_writeena</obj_property>
+      <obj_property name="ObjectShortName">bram_writeena</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/C_S_AXI_DATA_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_S_AXI_DATA_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_S_AXI_DATA_WIDTH</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Simple_BRAM_v1_0/UUT/Simple_BRAM_v1_0_S00_AXI_inst/C_S_AXI_ADDR_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_S_AXI_ADDR_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_S_AXI_ADDR_WIDTH</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>

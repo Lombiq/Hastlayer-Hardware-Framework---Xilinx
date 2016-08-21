@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Test_Hast_IP_v1_0_M00_AXI_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Test_Hast_IP_v1_0_M00_AXI" />
+            <top_module name="simplememory" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="194" />
+   <wave_markers>
+      <marker time="1535000000" label="" />
+   </wave_markers>
+   <wvobject type="divider" fp_name="divider415">
+      <obj_property name="label">Test_Hast_IP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/Clock" type="logic">
+      <obj_property name="ElementShortName">Clock</obj_property>
+      <obj_property name="ObjectShortName">Clock</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/Start_Fill_BRAM" type="logic">
+      <obj_property name="ElementShortName">Start_Fill_BRAM</obj_property>
+      <obj_property name="ObjectShortName">Start_Fill_BRAM</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/Rst_Counter" type="logic">
+      <obj_property name="ElementShortName">Rst_Counter</obj_property>
+      <obj_property name="ObjectShortName">Rst_Counter</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/Reset_Counter" type="logic">
+      <obj_property name="ElementShortName">Reset_Counter</obj_property>
+      <obj_property name="ObjectShortName">Reset_Counter</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_ARESETN" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARESETN</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARESETN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_AWADDR" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_AWVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_AWREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_WDATA" type="array">
+      <obj_property name="ElementShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_WSTRB" type="array">
+      <obj_property name="ElementShortName">M_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_WVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_WREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_BRESP" type="array">
+      <obj_property name="ElementShortName">M_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_BVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_BREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_ARADDR" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_ARVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_ARREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_RDATA" type="array">
+      <obj_property name="ElementShortName">M_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_RRESP" type="array">
+      <obj_property name="ElementShortName">M_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_RVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/M_AXI_RREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/MemberID" type="array">
+      <obj_property name="ElementShortName">MemberID[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MemberID[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/Started" type="logic">
+      <obj_property name="ElementShortName">Started</obj_property>
+      <obj_property name="ObjectShortName">Started</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_FILL_PHASE" type="logic">
+      <obj_property name="ElementShortName">BRAM_FILL_PHASE</obj_property>
+      <obj_property name="ObjectShortName">BRAM_FILL_PHASE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_FILL_AWVALID" type="logic">
+      <obj_property name="ElementShortName">BRAM_FILL_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">BRAM_FILL_AWVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_FILL_WVALID" type="logic">
+      <obj_property name="ElementShortName">BRAM_FILL_WVALID</obj_property>
+      <obj_property name="ObjectShortName">BRAM_FILL_WVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_FILL_AWADDR" type="array">
+      <obj_property name="ElementShortName">BRAM_FILL_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BRAM_FILL_AWADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_FILL_WDATA" type="array">
+      <obj_property name="ElementShortName">BRAM_FILL_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BRAM_FILL_WDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/AWVALID" type="logic">
+      <obj_property name="ElementShortName">AWVALID</obj_property>
+      <obj_property name="ObjectShortName">AWVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/WVALID" type="logic">
+      <obj_property name="ElementShortName">WVALID</obj_property>
+      <obj_property name="ObjectShortName">WVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/AWADDR" type="array">
+      <obj_property name="ElementShortName">AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AWADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/WDATA" type="array">
+      <obj_property name="ElementShortName">WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/state_AXI_MM" type="other">
+      <obj_property name="ElementShortName">state_AXI_MM</obj_property>
+      <obj_property name="ObjectShortName">state_AXI_MM</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/next_state_AXI_MM" type="other">
+      <obj_property name="ElementShortName">next_state_AXI_MM</obj_property>
+      <obj_property name="ObjectShortName">next_state_AXI_MM</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider2342">
+      <obj_property name="label">BRAM_Data_Counter</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Data_Counter/Clock" type="logic">
+      <obj_property name="ElementShortName">Clock</obj_property>
+      <obj_property name="ObjectShortName">Clock</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Data_Counter/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Data_Counter/Ena" type="logic">
+      <obj_property name="ElementShortName">Ena</obj_property>
+      <obj_property name="ObjectShortName">Ena</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Data_Counter/Load" type="logic">
+      <obj_property name="ElementShortName">Load</obj_property>
+      <obj_property name="ObjectShortName">Load</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Data_Counter/UpDown" type="logic">
+      <obj_property name="ElementShortName">UpDown</obj_property>
+      <obj_property name="ObjectShortName">UpDown</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Data_Counter/Data_in" type="array">
+      <obj_property name="ElementShortName">Data_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Data_in[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Data_Counter/Data_out" type="array">
+      <obj_property name="ElementShortName">Data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Data_out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Data_Counter/Cnt" type="array">
+      <obj_property name="ElementShortName">Cnt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Cnt[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Data_Counter/width" type="other">
+      <obj_property name="ElementShortName">width</obj_property>
+      <obj_property name="ObjectShortName">width</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider2341">
+      <obj_property name="label">BRAM_Address_Counter</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Address_Counter/Clock" type="logic">
+      <obj_property name="ElementShortName">Clock</obj_property>
+      <obj_property name="ObjectShortName">Clock</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Address_Counter/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Address_Counter/Ena" type="logic">
+      <obj_property name="ElementShortName">Ena</obj_property>
+      <obj_property name="ObjectShortName">Ena</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Address_Counter/Load" type="logic">
+      <obj_property name="ElementShortName">Load</obj_property>
+      <obj_property name="ObjectShortName">Load</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Address_Counter/UpDown" type="logic">
+      <obj_property name="ElementShortName">UpDown</obj_property>
+      <obj_property name="ObjectShortName">UpDown</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Address_Counter/Data_in" type="array">
+      <obj_property name="ElementShortName">Data_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Data_in[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Address_Counter/Data_out" type="array">
+      <obj_property name="ElementShortName">Data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Data_out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Address_Counter/Cnt" type="array">
+      <obj_property name="ElementShortName">Cnt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Cnt[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM_Address_Counter/width" type="other">
+      <obj_property name="ElementShortName">width</obj_property>
+      <obj_property name="ObjectShortName">width</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider416">
+      <obj_property name="label">BRAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_ACLK" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ACLK</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ACLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_ARESETN" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ARESETN</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARESETN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_AWADDR" type="array">
+      <obj_property name="ElementShortName">S_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_AWPROT" type="array">
+      <obj_property name="ElementShortName">S_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_AWVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_AWREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_WDATA" type="array">
+      <obj_property name="ElementShortName">S_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_WSTRB" type="array">
+      <obj_property name="ElementShortName">S_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_WVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_WREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_BRESP" type="array">
+      <obj_property name="ElementShortName">S_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_BVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_BREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_ARADDR" type="array">
+      <obj_property name="ElementShortName">S_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_ARPROT" type="array">
+      <obj_property name="ElementShortName">S_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_ARVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_ARREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_RDATA" type="array">
+      <obj_property name="ElementShortName">S_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_RRESP" type="array">
+      <obj_property name="ElementShortName">S_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_RVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/S_AXI_RREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/axi_awaddr" type="array">
+      <obj_property name="ElementShortName">axi_awaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_awaddr[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/axi_awready" type="logic">
+      <obj_property name="ElementShortName">axi_awready</obj_property>
+      <obj_property name="ObjectShortName">axi_awready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/axi_wready" type="logic">
+      <obj_property name="ElementShortName">axi_wready</obj_property>
+      <obj_property name="ObjectShortName">axi_wready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/axi_bresp" type="array">
+      <obj_property name="ElementShortName">axi_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bresp[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/axi_bvalid" type="logic">
+      <obj_property name="ElementShortName">axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/axi_araddr" type="array">
+      <obj_property name="ElementShortName">axi_araddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_araddr[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/axi_arready" type="logic">
+      <obj_property name="ElementShortName">axi_arready</obj_property>
+      <obj_property name="ObjectShortName">axi_arready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/axi_rdata" type="array">
+      <obj_property name="ElementShortName">axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_rdata[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/axi_rresp" type="array">
+      <obj_property name="ElementShortName">axi_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_rresp[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/axi_rvalid" type="logic">
+      <obj_property name="ElementShortName">axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/ram" type="array">
+      <obj_property name="ElementShortName">ram[0:511][31:0]</obj_property>
+      <obj_property name="ObjectShortName">ram[0:511][31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/readaddress_int" type="other">
+      <obj_property name="ElementShortName">readaddress_int</obj_property>
+      <obj_property name="ObjectShortName">readaddress_int</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/writeaddress_int" type="other">
+      <obj_property name="ElementShortName">writeaddress_int</obj_property>
+      <obj_property name="ObjectShortName">writeaddress_int</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/bram_readena" type="logic">
+      <obj_property name="ElementShortName">bram_readena</obj_property>
+      <obj_property name="ObjectShortName">bram_readena</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/BRAM/Simple_BRAM_v1_0_S00_AXI_inst/bram_writeena" type="logic">
+      <obj_property name="ElementShortName">bram_writeena</obj_property>
+      <obj_property name="ObjectShortName">bram_writeena</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider455">
+      <obj_property name="label">UUT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_MemberID_in" type="array">
+      <obj_property name="ElementShortName">Hast_IP_MemberID_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_MemberID_in[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_Started_in" type="logic">
+      <obj_property name="ElementShortName">Hast_IP_Started_in</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_Started_in</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_FinishedAck_in" type="logic">
+      <obj_property name="ElementShortName">Hast_IP_FinishedAck_in</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_FinishedAck_in</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_Finished_out" type="logic">
+      <obj_property name="ElementShortName">Hast_IP_Finished_out</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_Finished_out</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_Performance_out" type="array">
+      <obj_property name="ElementShortName">Hast_IP_Performance_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_Performance_out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_ACLK" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ACLK</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ACLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_ARESETN" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARESETN</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARESETN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_ARESET" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARESET</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARESET</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_AWADDR" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_AWPROT" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_AWVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_AWREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_WDATA" type="array">
+      <obj_property name="ElementShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_WSTRB" type="array">
+      <obj_property name="ElementShortName">M_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_WVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_WREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_BRESP" type="array">
+      <obj_property name="ElementShortName">M_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_BVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_BREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_ARADDR" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_ARPROT" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_ARVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_ARREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_RDATA" type="array">
+      <obj_property name="ElementShortName">M_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_RRESP" type="array">
+      <obj_property name="ElementShortName">M_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_RVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/M_AXI_RREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/INIT_AXI_TXN" type="logic">
+      <obj_property name="ElementShortName">INIT_AXI_TXN</obj_property>
+      <obj_property name="ObjectShortName">INIT_AXI_TXN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/mst_exec_state" type="other">
+      <obj_property name="ElementShortName">mst_exec_state</obj_property>
+      <obj_property name="ObjectShortName">mst_exec_state</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/axi_awvalid" type="logic">
+      <obj_property name="ElementShortName">axi_awvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_awvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/axi_wvalid" type="logic">
+      <obj_property name="ElementShortName">axi_wvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_wvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/axi_arvalid" type="logic">
+      <obj_property name="ElementShortName">axi_arvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_arvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/axi_rready" type="logic">
+      <obj_property name="ElementShortName">axi_rready</obj_property>
+      <obj_property name="ObjectShortName">axi_rready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/axi_bready" type="logic">
+      <obj_property name="ElementShortName">axi_bready</obj_property>
+      <obj_property name="ObjectShortName">axi_bready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/axi_awaddr" type="array">
+      <obj_property name="ElementShortName">axi_awaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_awaddr[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/axi_wdata" type="array">
+      <obj_property name="ElementShortName">axi_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_wdata[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/axi_araddr" type="array">
+      <obj_property name="ElementShortName">axi_araddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_araddr[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/start_single_write" type="logic">
+      <obj_property name="ElementShortName">start_single_write</obj_property>
+      <obj_property name="ObjectShortName">start_single_write</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/start_single_read" type="logic">
+      <obj_property name="ElementShortName">start_single_read</obj_property>
+      <obj_property name="ObjectShortName">start_single_read</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/write_issued" type="logic">
+      <obj_property name="ElementShortName">write_issued</obj_property>
+      <obj_property name="ObjectShortName">write_issued</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/read_issued" type="logic">
+      <obj_property name="ElementShortName">read_issued</obj_property>
+      <obj_property name="ObjectShortName">read_issued</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/writes_done" type="logic">
+      <obj_property name="ElementShortName">writes_done</obj_property>
+      <obj_property name="ObjectShortName">writes_done</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/reads_done" type="logic">
+      <obj_property name="ElementShortName">reads_done</obj_property>
+      <obj_property name="ObjectShortName">reads_done</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/init_txn_ff" type="logic">
+      <obj_property name="ElementShortName">init_txn_ff</obj_property>
+      <obj_property name="ObjectShortName">init_txn_ff</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/init_txn_ff2" type="logic">
+      <obj_property name="ElementShortName">init_txn_ff2</obj_property>
+      <obj_property name="ObjectShortName">init_txn_ff2</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/init_txn_pulse" type="logic">
+      <obj_property name="ElementShortName">init_txn_pulse</obj_property>
+      <obj_property name="ObjectShortName">init_txn_pulse</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_MemberID_in_int" type="other">
+      <obj_property name="ElementShortName">Hast_IP_MemberID_in_int</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_MemberID_in_int</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_CellIndex_out_int" type="other">
+      <obj_property name="ElementShortName">Hast_IP_CellIndex_out_int</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_CellIndex_out_int</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_CellIndex_out_sig" type="array">
+      <obj_property name="ElementShortName">Hast_IP_CellIndex_out_sig[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_CellIndex_out_sig[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_Data_in" type="array">
+      <obj_property name="ElementShortName">Hast_IP_Data_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_Data_in[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_Data_out" type="array">
+      <obj_property name="ElementShortName">Hast_IP_Data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_Data_out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_Read_Addr_out" type="array">
+      <obj_property name="ElementShortName">Hast_IP_Read_Addr_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_Read_Addr_out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_Read_Ena_out" type="logic">
+      <obj_property name="ElementShortName">Hast_IP_Read_Ena_out</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_Read_Ena_out</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_Write_Addr_out" type="array">
+      <obj_property name="ElementShortName">Hast_IP_Write_Addr_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_Write_Addr_out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_Write_Ena_out" type="logic">
+      <obj_property name="ElementShortName">Hast_IP_Write_Ena_out</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_Write_Ena_out</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_reads_done" type="logic">
+      <obj_property name="ElementShortName">Hast_IP_reads_done</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_reads_done</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_writes_done" type="logic">
+      <obj_property name="ElementShortName">Hast_IP_writes_done</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_writes_done</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_Finished_out_sig" type="logic">
+      <obj_property name="ElementShortName">Hast_IP_Finished_out_sig</obj_property>
+      <obj_property name="ObjectShortName">Hast_IP_Finished_out_sig</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Performance_Counter_Ena" type="logic">
+      <obj_property name="ElementShortName">Performance_Counter_Ena</obj_property>
+      <obj_property name="ObjectShortName">Performance_Counter_Ena</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Cnt" type="array">
+      <obj_property name="ElementShortName">Cnt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Cnt[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider961">
+      <obj_property name="label">Hast_IP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\Clock\" type="logic">
+      <obj_property name="ElementShortName">\Clock\</obj_property>
+      <obj_property name="ObjectShortName">\Clock\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\Reset\" type="logic">
+      <obj_property name="ElementShortName">\Reset\</obj_property>
+      <obj_property name="ObjectShortName">\Reset\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\MemberID\" type="other">
+      <obj_property name="ElementShortName">\MemberID\</obj_property>
+      <obj_property name="ObjectShortName">\MemberID\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\DataIn\" type="array">
+      <obj_property name="ElementShortName">\DataIn\[31:0]</obj_property>
+      <obj_property name="ObjectShortName">\DataIn\[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\DataOut\" type="array">
+      <obj_property name="ElementShortName">\DataOut\[31:0]</obj_property>
+      <obj_property name="ObjectShortName">\DataOut\[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\ReadEnable\" type="logic">
+      <obj_property name="ElementShortName">\ReadEnable\</obj_property>
+      <obj_property name="ObjectShortName">\ReadEnable\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\WriteEnable\" type="logic">
+      <obj_property name="ElementShortName">\WriteEnable\</obj_property>
+      <obj_property name="ObjectShortName">\WriteEnable\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\CellIndexOut\" type="other">
+      <obj_property name="ElementShortName">\CellIndexOut\</obj_property>
+      <obj_property name="ObjectShortName">\CellIndexOut\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\Started\" type="logic">
+      <obj_property name="ElementShortName">\Started\</obj_property>
+      <obj_property name="ObjectShortName">\Started\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\FinishedAck\" type="logic">
+      <obj_property name="ElementShortName">\FinishedAck\</obj_property>
+      <obj_property name="ObjectShortName">\FinishedAck\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\Finished\" type="logic">
+      <obj_property name="ElementShortName">\Finished\</obj_property>
+      <obj_property name="ObjectShortName">\Finished\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\ReadsDone\" type="logic">
+      <obj_property name="ElementShortName">\ReadsDone\</obj_property>
+      <obj_property name="ObjectShortName">\ReadsDone\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\WritesDone\" type="logic">
+      <obj_property name="ElementShortName">\WritesDone\</obj_property>
+      <obj_property name="ObjectShortName">\WritesDone\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/Test" type="array">
+      <obj_property name="ElementShortName">Test[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Test[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/Test2" type="array">
+      <obj_property name="ElementShortName">Test2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Test2[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/Test3" type="array">
+      <obj_property name="ElementShortName">Test3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Test3[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\number.param\" type="other">
+      <obj_property name="ElementShortName">\number.param\</obj_property>
+      <obj_property name="ObjectShortName">\number.param\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/IsPrimenum_number_param" type="other">
+      <obj_property name="ElementShortName">IsPrimenum_number_param</obj_property>
+      <obj_property name="ObjectShortName">IsPrimenum_number_param</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/ArePrimenums_number_param" type="other">
+      <obj_property name="ElementShortName">ArePrimenums_number_param</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_number_param</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\number.iter\" type="other">
+      <obj_property name="ElementShortName">\number.iter\</obj_property>
+      <obj_property name="ObjectShortName">\number.iter\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\result\" type="logic">
+      <obj_property name="ElementShortName">\result\</obj_property>
+      <obj_property name="ObjectShortName">\result\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\result_0\" type="logic">
+      <obj_property name="ElementShortName">\result_0\</obj_property>
+      <obj_property name="ObjectShortName">\result_0\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\PrimeCalcDataOut_0\" type="logic">
+      <obj_property name="ElementShortName">\PrimeCalcDataOut_0\</obj_property>
+      <obj_property name="ObjectShortName">\PrimeCalcDataOut_0\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\Primecalc_result_0\" type="logic">
+      <obj_property name="ElementShortName">\Primecalc_result_0\</obj_property>
+      <obj_property name="ObjectShortName">\Primecalc_result_0\</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/\num_incr\" type="other">
+      <obj_property name="ElementShortName">\num_incr\</obj_property>
+      <obj_property name="ObjectShortName">\num_incr\</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/StartPrimeCalculator_0" type="logic">
+      <obj_property name="ElementShortName">StartPrimeCalculator_0</obj_property>
+      <obj_property name="ObjectShortName">StartPrimeCalculator_0</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/Primecalc_Finished_0" type="logic">
+      <obj_property name="ElementShortName">Primecalc_Finished_0</obj_property>
+      <obj_property name="ObjectShortName">Primecalc_Finished_0</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/ArePrimenums_ReadEna" type="logic">
+      <obj_property name="ElementShortName">ArePrimenums_ReadEna</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_ReadEna</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/ArePrimenums_ReadAddr" type="other">
+      <obj_property name="ElementShortName">ArePrimenums_ReadAddr</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_ReadAddr</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/ArePrimenums_WriteEna" type="logic">
+      <obj_property name="ElementShortName">ArePrimenums_WriteEna</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_WriteEna</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/ArePrimenums_WriteAddr" type="other">
+      <obj_property name="ElementShortName">ArePrimenums_WriteAddr</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_WriteAddr</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/ArePrimenums_DataOut" type="array">
+      <obj_property name="ElementShortName">ArePrimenums_DataOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_DataOut[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/ArePrimenums_Finish" type="logic">
+      <obj_property name="ElementShortName">ArePrimenums_Finish</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_Finish</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/ArePrimenums_StartPrimeCalc_0" type="logic">
+      <obj_property name="ElementShortName">ArePrimenums_StartPrimeCalc_0</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_StartPrimeCalc_0</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/ArePrimenums_Primecalc_instance" type="array">
+      <obj_property name="ElementShortName">ArePrimenums_Primecalc_instance[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_Primecalc_instance[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/ArePrimenums_FinishedPrimecalc" type="logic">
+      <obj_property name="ElementShortName">ArePrimenums_FinishedPrimecalc</obj_property>
+      <obj_property name="ObjectShortName">ArePrimenums_FinishedPrimecalc</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/state_SM_Primecalculator_0" type="other">
+      <obj_property name="ElementShortName">state_SM_Primecalculator_0</obj_property>
+      <obj_property name="ObjectShortName">state_SM_Primecalculator_0</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Hast_IP_v1_0_M00_AXI/UUT/Hast_IP_inst/state_SM_ArePrimeNumbers" type="other">
+      <obj_property name="ElementShortName">state_SM_ArePrimeNumbers</obj_property>
+      <obj_property name="ObjectShortName">state_SM_ArePrimeNumbers</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>

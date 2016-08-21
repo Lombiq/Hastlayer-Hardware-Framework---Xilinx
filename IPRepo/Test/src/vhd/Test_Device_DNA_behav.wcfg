@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Test_Device_DNA_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Test_Device_DNA" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="448333334fs"></ZoomStartTime>
+      <ZoomEndTime time="1448333335fs"></ZoomEndTime>
+      <Cursor1Time time="625000000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="10" />
+   <wvobject type="divider" fp_name="divider71">
+      <obj_property name="label">Test_Device_DNA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Device_DNA/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Device_DNA/Clock" type="logic">
+      <obj_property name="ElementShortName">Clock</obj_property>
+      <obj_property name="ObjectShortName">Clock</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Device_DNA/DNA_parallel" type="array">
+      <obj_property name="ElementShortName">DNA_parallel[63:0]</obj_property>
+      <obj_property name="ObjectShortName">DNA_parallel[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider72">
+      <obj_property name="label">UUT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Device_DNA/UUT/Clock" type="logic">
+      <obj_property name="ElementShortName">Clock</obj_property>
+      <obj_property name="ObjectShortName">Clock</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Device_DNA/UUT/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Device_DNA/UUT/DNA_parallel" type="array">
+      <obj_property name="ElementShortName">DNA_parallel[63:0]</obj_property>
+      <obj_property name="ObjectShortName">DNA_parallel[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Device_DNA/UUT/sig_dna_serial" type="logic">
+      <obj_property name="ElementShortName">sig_dna_serial</obj_property>
+      <obj_property name="ObjectShortName">sig_dna_serial</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/Test_Device_DNA/UUT/sig_dna_tmp" type="array">
+      <obj_property name="ElementShortName">sig_dna_tmp[56:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_dna_tmp[56:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>
