@@ -677,7 +677,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>84554682</spirit:value>
+            <spirit:value>5b4de7df</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -693,7 +693,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>84554682</spirit:value>
+            <spirit:value>5b4de7df</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2206,10 +2206,10 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>Hast_IP_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>35</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2016-08-01T14:43:48Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>36</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2016-10-07T20:07:53Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="xilinx.com:user:Hast_IP:1.0_ARCHIVE_LOCATION">E:/Projects/Munka/Lombiq/Hastlayer/HastlayerHardwareHAST-49/IPRepo/Hast_IP_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="xilinx.com:user:Hast_IP:1.0_ARCHIVE_LOCATION">E:/Projects/Munka/Lombiq/Hastlayer/HastlayerHardware-1/IPRepo/Hast_IP_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
@@ -2217,7 +2217,7 @@
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="3ebd769b"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="64346dae"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="047ae1d8"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="56123a5f"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="373cf8c5"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="22fe7923"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="37006271"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="2f294eb7"/>
