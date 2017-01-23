@@ -17,3 +17,4 @@ The aim of this document is to help the reader to reconstruct and test the **Has
 - [AXI Lite interface slave registers](Docs/AxiSlaveRegisters.md)
 - [Adding custom library functions to the design](Docs/CustomLibraryFunctions.md)
 - [Debugging with an ILA core](Docs/IlaDebugging.md)
+- [Update project to the latest development environment](Docs/ProjectUpdate.md)
