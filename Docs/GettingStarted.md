@@ -33,7 +33,7 @@ If the *Create file associations* option is not selected while installing Vivado
 ## Generating the SDK workspace with batch file (mksdk.bat)
 
 To start the Xilinx SDK, you will have to *Generate bitstream* in Vivado, wait until the process ends, and choose *Export → Export Hardware*.
-In the dialog that appears, choose the `sdk` folder in the root of the repository, then click OK.
+In the dialog that appears, choose the `SDK` folder in the root of the repository, then click OK.
 
 ![Export Hardware](Images/ExportHardwareToSDK.png)
 
