@@ -12,11 +12,11 @@ On the [Xilinx memory recommendations](http://www.xilinx.com/design-tools/vivado
 
 ## Software requirements
 
-During development the Vivado 2015.4 (64-bit) and the corresponding Xilinx Software Development Kit (SDK) were used. If you use and older version of Vivado, you might find some of the IP's in the Block Design locked. In this case you will need to update old IP's (Vivado indicates them).
+During development the Vivado 2016.4 (64-bit) and the corresponding Xilinx Software Development Kit (SDK) were used. If you use and older version of Vivado, you might find some of the IP's in the Block Design locked. In this case you will need to update old IP's (Vivado indicates them).
 
 
 ## Digilent Nexys 4 DDR board files installation
 
 Download the **Nexys 4 DDR board files** from [Vivado Board Files for Digilent 7-Series FPGA Boards](https://reference.digilentinc.com/vivado:boardfiles2015).
 
-Follow the instructions in the description (merge the contents of the downloaded .zip file with the existing Vivado board files; it can be found under a path like C:\Xilinx\Vivado\2015.4\data\boards\board_files\). Now you should be able to choose the Nexys 4 DDR board in Vivado when you create a new project.
+Follow the instructions in the description (merge the contents of the downloaded .zip file with the existing Vivado board files; it can be found under a path like C:\Xilinx\Vivado\2016.4\data\boards\board_files\). Now you should be able to choose the Nexys 4 DDR board in Vivado when you create a new project.

@@ -33,7 +33,7 @@ If the *Create file associations* option is not selected while installing Vivado
 ## Generating the SDK workspace with batch file (mksdk.bat)
 
 To start the Xilinx SDK, you will have to *Generate bitstream* in Vivado, wait until the process ends, and choose *Export → Export Hardware*.
-In the dialog that appears, choose the `sdk` folder in the root of the repository, then click OK.
+In the dialog that appears, choose the `SDK` folder in the root of the repository, then click OK.
 
 ![Export Hardware](Images/ExportHardwareToSDK.png)
 
@@ -57,12 +57,12 @@ Now you are ready to develop with the Xilinx SDK:
 
 ![Ready to develop with SDK](Images/SDKStandby.png)
 
-> If you run into problems while building a project, try this:
-> 1. Right click on the project in *Project Explorer*.
-> 2. Select *Change Referenced BSP*.
-> 3. Select *Hastlayer_bsp* in the popup window.
-> 4. Press OK.
-> 5. Clean and rebuild the project.
+If you run into problems while building a project, try this:
+1. Right click on the project in *Project Explorer*.
+2. Select *Change Referenced BSP*.
+3. Select *Hastlayer_bsp* in the popup window.
+4. Press OK.
+5. Clean and rebuild the project.
 
 
 ## Generating the SDK workspace manually
@@ -115,7 +115,7 @@ You have to take different actions when different parts of the project change:
 - If the block design changes (IP cores are added/removed or the topology changes):
     - Open the block design in Vivado
     - Select *File → Export → Export Block Design*
-	- Change the export path to overwrite the existing mkbd.tcl in the root of the repo. For example: change from *N:/lombiq/fm/hastlayer-hardware/project/Hastlayer.tcl* to *N:/lombiq/fm/hastlayer-hardware/mkbd.tcl*.
+    - Change the export path to overwrite the existing mkbd.tcl in the root of the repo. For example: change from *N:/lombiq/fm/hastlayer-hardware/project/Hastlayer.tcl* to *N:/lombiq/fm/hastlayer-hardware/mkbd.tcl*.
 - If new files have been added to the project itself, you first have to check the Vivado TCL window in order to see the executed TCL commands, and add these to the `mkproject.tcl` file manually. Let's see an example:
     - We're adding a file called `new_source.vhd` to our project through the *Add Sources* wizard of Vivado.  
     ![Add Sources](Images/VivadoAddSourcesWizard.png)
@@ -130,9 +130,9 @@ You have to take different actions when different parts of the project change:
 - If the C/C++ project changes in the SDK, you have nothing to do.
 
 
-## Upgrading the project to a new Vivado version
+## Upgrading the project to the latest Vivado version
 
-The TCL file used to generate the project is less likely to be compatible between Vivado versions than the generated `.xpr` project.
+The TCL file used to generate the project is not fully compatible between Vivado versions.
 
 If the project is not generated correctly in a new version of Vivado, you may have to manually upgrade `mkproject.tcl`. These are the steps:
 
@@ -141,3 +141,4 @@ If the project is not generated correctly in a new version of Vivado, you may ha
 3. Rename `mkproject.tcl` to `mkproject.tcl.bak`
 4. Click on *Write Project Tcl* in the Vivado menu, and for the path select `mkproject.tcl` in the root of the repo.
 5. Manually edit the generated TCL file. First, remove all entries corresponding to log files. Then compare the TCL with the original one (still available as `mkproject.tcl.bak`) and make all modifications that were made to the original TCL. Look for comments with "@", these help.
+6. You will also need to check the following files: mkproject.bat; mkbd.tcl; mksdk.bat; mksdk.tcl. You will need to modify the development environment version numbers, the IP versions, and commands (if some of them are deprecated).
