@@ -5,13 +5,13 @@ use ieee.numeric_std.all;
 package SimpleMemory is
 	-- Data conversion functions:
 	function ConvertUInt32ToStdLogicVector(input: unsigned(31 downto 0)) return std_logic_vector;
-	function ConvertStdLogicVectorToUInt32(input : std_logic_vector) return unsigned(31 downto 0);
+	function ConvertStdLogicVectorToUInt32(input : std_logic_vector) return unsigned;
 		
 	function ConvertBooleanToStdLogicVector(input: boolean) return std_logic_vector;
 	function ConvertStdLogicVectorToBoolean(input : std_logic_vector) return boolean;
 		
 	function ConvertInt32ToStdLogicVector(input: signed(31 downto 0)) return std_logic_vector;
-	function ConvertStdLogicVectorToInt32(input : std_logic_vector) return signed(31 downto 0);
+	function ConvertStdLogicVectorToInt32(input : std_logic_vector) return signed;
 		
 	function ConvertCharToStdLogicVector(input: character) return std_logic_vector;
 	function ConvertStdLogicVectorToChar(input : std_logic_vector) return character;
@@ -24,7 +24,7 @@ end SimpleMemory;
 		return std_logic_vector(input);
 	end ConvertUInt32ToStdLogicVector;
 	
-	function ConvertStdLogicVectorToUInt32(input : std_logic_vector) return unsigned(31 downto 0) is
+	function ConvertStdLogicVectorToUInt32(input : std_logic_vector) return unsigned is
 	begin
 		return unsigned(input);
 	end ConvertStdLogicVectorToUInt32;
@@ -49,7 +49,7 @@ end SimpleMemory;
 		return std_logic_vector(input);
 	end ConvertInt32ToStdLogicVector;
 
-	function ConvertStdLogicVectorToInt32(input : std_logic_vector) return signed(31 downto 0) is
+	function ConvertStdLogicVectorToInt32(input : std_logic_vector) return signed is
 	begin
 		return signed(input);
 	end ConvertStdLogicVectorToInt32;
