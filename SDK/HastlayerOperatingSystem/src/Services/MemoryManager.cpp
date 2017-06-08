@@ -4,7 +4,7 @@
 namespace HastlayerOperatingSystem
 {
 
-volatile Xuint32 *memoryBaseAddressPointer = (volatile Xuint32 *) DDR_MEMORY_HAST_IP_BASEADDRESS;
+volatile unsigned long *memoryBaseAddressPointer = (volatile unsigned long *) DDR_MEMORY_HAST_IP_BASEADDRESS;
 
 
 void MemoryManager::CopyIntegersToInputOutputArea(byte* startAddress, int byteLength, unsigned int* offset)

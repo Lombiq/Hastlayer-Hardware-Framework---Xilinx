@@ -3,7 +3,7 @@
 namespace HastlayerOperatingSystem
 {
 
-volatile Xuint32 *registerBaseAddressPointer = (volatile Xuint32 *) XPAR_HAST_IP_0_S00_AXI_BASEADDR;
+volatile unsigned long *registerBaseAddressPointer = (volatile unsigned long *) XPAR_HAST_IP_0_S00_AXI_BASEADDR;
 
 
 void RegisterManager::RunAndWait()

@@ -67,7 +67,7 @@ void SerialCommunicationServer::StartSerialCommunicationServer()
 				// Sending the output.
 				UartManager::WaitForTransmitterReady();
 				currentMemoryBaseAddressOffset = 0;
-				Xuint32* inputOutputMemoryAddress = (Xuint32*)MemoryManager::GetInputOutputMemoryBaseAddress();
+				unsigned long* inputOutputMemoryAddress = (unsigned long*)MemoryManager::GetInputOutputMemoryBaseAddress();
 				for (unsigned int i = 1; i <= outputBytesCount / 4; i++)
 				{
 					UartManager::SendInt(*(inputOutputMemoryAddress + currentMemoryBaseAddressOffset));

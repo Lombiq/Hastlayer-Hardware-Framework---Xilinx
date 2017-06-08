@@ -1,7 +1,7 @@
 #ifndef MEMORYMANAGER_H_
 #define MEMORYMANAGER_H_
 
-#include "xbasic_types.h"
+#include "xil_types.h"
 #include "../Helpers/ValueConverters.h"
 #include "../Platform.h"
 

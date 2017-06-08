@@ -4,7 +4,7 @@
 #include "xparameters.h"
 #include <xio.h>
 #include "xuartlite_l.h"
-#include "xbasic_types.h"
+#include "xil_types.h"
 #include "../../TypeDefinitions.h"
 
 

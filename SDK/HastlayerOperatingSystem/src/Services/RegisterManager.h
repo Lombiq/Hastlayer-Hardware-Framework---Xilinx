@@ -1,7 +1,7 @@
 #ifndef REGISTERMANAGER_H_
 #define REGISTERMANAGER_H_
 
-#include "xbasic_types.h"
+#include "xil_types.h"
 #include "../Platform.h"
 
 

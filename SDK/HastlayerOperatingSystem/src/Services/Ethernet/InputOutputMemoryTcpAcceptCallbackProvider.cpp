@@ -119,7 +119,7 @@ static err_t PacketSentCallback(void *tcpArgument, struct tcp_pcb *controlBlock,
 
 		HASTLAYER_DEBUG_INFORMATION("All enqueued bytes have been sent. Enqueuing more bytes (length: %d).", context->EnqueuedByteCount);
 
-		Xuint32* memoryAddress = (Xuint32*)MemoryManager::GetInputOutputMemoryBaseAddress() + context->CurrentMemoryBaseAddressOffset;
+		unsigned long* memoryAddress = (unsigned long*)MemoryManager::GetInputOutputMemoryBaseAddress() + context->CurrentMemoryBaseAddressOffset;
 		err_t result = TcpEnqueue(controlBlock, (const void*)memoryAddress, context->EnqueuedByteCount);
 		context->CurrentMemoryBaseAddressOffset += context->EnqueuedByteCount / 4;
 
