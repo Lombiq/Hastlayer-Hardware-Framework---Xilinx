@@ -20,7 +20,7 @@ public:
 	static void WaitForUartInput();
 
 	/**
-	 * Waits for the specified byte to appear on UART.
+	 * Waits for the specifided byte to appear on UART.
 	 */
 	static void WaitForUartInput(byte byteToWaitFor);
 
