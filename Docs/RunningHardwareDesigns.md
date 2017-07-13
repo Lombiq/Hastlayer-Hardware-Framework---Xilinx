@@ -15,17 +15,17 @@ Note: if you're running the sample from a freshly created Vivado projects you ca
 4. Overwrite the file the the generated one (or you can configure Hastlayer to save the file straight to that location).
 5. Vivado will notice that the file has changed and show you an "IP Catalog is out-of-date" message. Click "Refresh IP Catalog" there.
 
-![IP Catalog is out-of-date](Images/IPCatalogOutOfDate.png)
+	![IP Catalog is out-of-date](Images/IPCatalogOutOfDate.png)
 
 6. Once the IP Catalog is refreshed you'll need to upgrade the IP by clicking "Upgrade Selected" in the IP Status window that appears at the bottom of the screen.
 
-![Upgrade IP](Images/UpgradeIP.png)
+	![Upgrade IP](Images/UpgradeIP.png)
 
 7. After the upgrade is done Vivado will ask you to generate output products for the project, so do so. This will take a bit.
 8. Once done with this you can generate the bitstream from the design; this will be loaded onto the FPGA. Do so by selecting "Generate Bitstream" from under Flow/Generate Bitstream or from the bottom of the left-hand "Flow Navigator" pane. 
 9. Bitstream generation will take a while, depending on the complexity of the design it can be as long as an hour or more. Once it's completed you can follow up with the next section. But first make sure that the the design will fit on the FPGA: Post-Implementation resource utilization (check it in the Project Summary window that will open after bitstream generation) should be below 80% for every kind of resource.
 
-![Resource Utilization](Images/ResourceUtilization.png)
+	![Resource Utilization](Images/ResourceUtilization.png)
 
 
 ## Running the hardware design
@@ -36,11 +36,11 @@ Once the bitstream is generated you need to program the FPGA with the hardware d
 2. Load the hardware design onto the FPGA by doing the following: Right click on the listed FPGA and select "Program Device", then click "Program".
 3. Export the design to the SDK from under File/Export/Export Hardware. Tick "Include bitstream" and choose the project's generated *SDK* folder as the destination.
 
-![Export Hardware](Images/ExportHardwareToSDK.png)
+	![Export Hardware](Images/ExportHardwareToSDK.png)
 
 4. Launch the SDK from under File/Launch SDK. Select the previously used *SDK* folder for both "Exported location" and "Workspace".
 
-![Launch SDK](Images/LaunchSDK.png)
+	![Launch SDK](Images/LaunchSDK.png)
 
 6. Build the project in the SDK. This should happen automatically, but if not, right click on the `HastlayerOperatingSystem` project and select Build Project.
 7. Now you can launch the embedded software on the FPGA to make it listen to input:
