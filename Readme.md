@@ -12,6 +12,7 @@ The aim of this document is to help the reader to reconstruct and test the **Has
 
 - [Prerequisite requirements](Docs/Prerequisites.md)
 - [Getting started](Docs/GettingStarted.md)
+- [Running hardware designs](Docs/RunningHardwareDesigns.md)
 - [Version control](Docs/VersionControl.md)
 - [Upgrading the project to the latest Vivado version](Docs/UpgradingToNewVivado.md)
 - [Design reproduction steps](Docs/ReproductionSteps.md)
