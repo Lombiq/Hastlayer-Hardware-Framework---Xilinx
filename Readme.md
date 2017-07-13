@@ -12,6 +12,8 @@ The aim of this document is to help the reader to reconstruct and test the **Has
 
 - [Prerequisite requirements](Docs/Prerequisites.md)
 - [Getting started](Docs/GettingStarted.md)
+- [Version control](Docs/VersionControl.md)
+- [Upgrading the project to the latest Vivado version](Docs/UpgradingToNewVivado.md)
 - [Design reproduction steps](Docs/ReproductionSteps.md)
 - [Testing custom IP cores](Docs/Testing.md)
 - [AXI Lite interface slave registers](Docs/AxiSlaveRegisters.md)
