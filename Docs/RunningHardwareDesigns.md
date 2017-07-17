@@ -13,7 +13,7 @@ Note: if you're running the sample from a freshly created Vivado projects you ca
 2. Generate the hardware description with the .NET component of Hastlayer. Make sure to configure it to write out the VHDL source code to a file as in the samples.
 3. Once the file is created locate the source file that you'll need to overwrite with it in the Hardware repo's clone: It's under *IPRepo\Hast_IP.vhd* on the file system (this contains the `PrimeCalculator` sample by default). (IP means "intellectual property" here, as in "IP core", i.e. self-contained hardware component).
 4. Overwrite the file the the generated one (or you can configure Hastlayer to save the file straight to that location).
-5. Vivado will notice that the file has changed and show you an "IP Catalog is out-of-date" message. Click "Refresh IP Catalog" there.
+5. Vivado will notice that the file has changed and show you an "IP Catalog is out-of-date" message. Click "Refresh IP Catalog" there. If you don't see this message then that means Vivado didn't recognize the change; in this case edit *Hast_IP.vhd* (just adding and removing any character, then saving the file is enough), that should do the trick.
 
 	![IP Catalog is out-of-date](Images/IPCatalogOutOfDate.png)
 
