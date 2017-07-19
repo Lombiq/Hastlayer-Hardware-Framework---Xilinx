@@ -42,9 +42,12 @@ Once the bitstream is generated you need to program the FPGA with the hardware d
 
 	![Launch SDK](Images/LaunchSDK.png)
 
-6. Build the project in the SDK. This should happen automatically, but if not, right click on the `HastlayerOperatingSystem` project and select Build Project.
-7. Now you can launch the embedded software on the FPGA to make it listen to input:
+5. Build the project in the SDK. This should happen automatically, but if not, right click on the `HastlayerOperatingSystem` project and select Build Project.
+6. Now you can launch the embedded software on the FPGA to make it listen to input:
 	1. Select Run/Debug Configurations.
 	2. Select the existing configuration named "Debug" under "Xilinx C/C++ application (GDB).
-8. The program will start running on the FPGA and you'll even be able to set breakpoints and see the application's state in the debugger.
-9. Now you can start the host component of Hastlayer from Visual Studio and invocations on hardware entry points will be transferred to the FPGA.
+7. The program will start running on the FPGA and you'll even be able to set breakpoints and see the application's state in the debugger. You should see the SDK's Debug perspective:
+
+	![Xilinx SDK Debug perspective](Images/XilinxSdkDebugPerspective.png)
+
+8. Now you can start the host component of Hastlayer from Visual Studio and invocations on hardware entry points will be transferred to the FPGA.
