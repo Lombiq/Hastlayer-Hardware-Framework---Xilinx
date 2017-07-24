@@ -5,8 +5,6 @@
 This document is a guideline which provides a brief description of the **Hastlayer Hardware Framework**.
 The aim of this document is to help the reader to reconstruct and test the **Hastlayer FPGA firmware design** and to give a hand when you run into a problem.
 
-**Note:** general Vivado and FPGA development tips are in Confluence.
-
 
 ## Table of contents
 

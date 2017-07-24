@@ -12,7 +12,14 @@ On the [Xilinx memory recommendations](http://www.xilinx.com/design-tools/vivado
 
 ## Software requirements
 
-During development the Vivado 2016.4 (64-bit) and the corresponding Xilinx Software Development Kit (SDK) were used. If you use and older version of Vivado, you might find some of the IP's in the Block Design locked. In this case you will need to update old IP's (Vivado indicates them).
+Use Vivado **2016.4 (64-bit)** and the corresponding Xilinx Software Development Kit (SDK). Some notes:
+
+- Use exactly the above version. No other version, be it newer or older, will be compatible.
+- You can download the WebPACK version of Vivado for free from [Xilinx's website](https://www.xilinx.com/support/download.html).
+- Install Vivado under a path without special characters or spaces and also put your projects under similarly simple paths! Otherwise a lot of things will mysteriously fail in Vivado (e.g. with the TCL error "TclStackFree: incorrect freePtr. Call out of sequence?") and also in Xilinx SDK. You can also use symlinks to provide such a path to an otherwise problematic one.
+- During installation select everything you can to install.
+
+	![Vivado installation items](Images/VivadoInstallationItems.png)
 
 
 ## Digilent Nexys 4 DDR board files installation
