@@ -61,6 +61,7 @@ Now you are ready to develop with the Xilinx SDK:
 You may have only one Hastlayer_wrapper_hw_platform_x project or multiple ones, this doesn't matter (due to a Xilinx SDK bug these can be duplicated).
 
 If you run into problems while building a project, try this:
+
 1. Right click on the project in *Project Explorer*.
 2. Select *Change Referenced BSP*.
 3. Select *Hastlayer_bsp* in the popup window.
