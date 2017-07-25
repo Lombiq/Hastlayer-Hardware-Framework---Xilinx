@@ -53,4 +53,4 @@ Once the bitstream is generated you need to program the FPGA with the hardware d
 
 	![Xilinx SDK Debug perspective](Images/XilinxSdkDebugPerspective.png)
 
-8. Now you can start the host component of Hastlayer from Visual Studio and invocations on hardware entry points will be transferred to the FPGA.
+8. Now you can start the host component of Hastlayer from Visual Studio and invocations on hardware entry points will be transferred to the FPGA. If this is the first time you run a hardware design after setting up Hastlayer check if the SDK program is indeed running on the FPGA by clicking the Suspend (pause) button. The program's execution should properly halt at one point, after which you can resume it (if there are issues with the program it won't pause and you'll get some error message).
