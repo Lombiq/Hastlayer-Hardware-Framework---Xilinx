@@ -5,6 +5,7 @@
 The TCL-based approach to keep the minimum set of files under version control has been selected because the XPR project and its associated files change frequently (even from opening and recompiling the project).
 
 ## Committing changes
+
 You have to take different actions when different parts of the project change:
 
 - If the files or ports of Hast IP change, you will have to regenerate `component.xml` by repackaging the IP core in the Vivado subproject of the IP core.
@@ -21,6 +22,8 @@ You have to take different actions when different parts of the project change:
     ![Editing mkproject.tcl for adding source file](Images/MkprojectTclEditForAddingSource.png)
 - If the C/C++ project changes in the SDK, you have nothing to do.
 
+
 ## Pulling changes
-- If *mkbd.tcl* or *mkproject.tcl* changes you have to delete the *Project* folder and re-run *mkproject.bat*. If anything else changes in the hardware design then you'll just need to regenerate the bitstream.
+
+- If *mkbd.tcl* or *mkproject.tcl* changes you have to delete the *Project* folder and re-run *mkproject.bat*. If anything else changes in the hardware design then you'll just need to regenerate the bitstream. If the IP is re-packaged you'll need to either regenerate the Vivado and SDK projects (after purging or re-cloning the Hardware repo) or manually upgrade Hast_IP (in Vivado go to Tools/Report/Report IP Status, then after Hast_IP is listed in the IP Status window as changed you'll need to follow the steps under [this page](RunningHardwareDesigns.md).
 - If the C/C++ project changes in the SDK, you have nothing to do.
