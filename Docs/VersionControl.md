@@ -25,5 +25,5 @@ You have to take different actions when different parts of the project change:
 
 ## Pulling changes
 
-- If *mkbd.tcl* or *mkproject.tcl* changes you have to delete the *Project* folder and re-run *mkproject.bat*. If anything else changes in the hardware design then you'll just need to regenerate the bitstream after running `reset_project` in the Tcl Console.
+- If *mkbd.tcl* or *mkproject.tcl* changes you have to delete the *Project* folder and re-run *mkproject.bat*. If anything else changes in the hardware design then you'll just need to regenerate the bitstream. If the IP is re-packaged you'll need to either regenerate the Vivado and SDK projects (after purging or re-cloning the Hardware repo) or manually upgrade Hast_IP (in Vivado go to Tools/Report/Report IP Status, then after Hast_IP is listed in the IP Status window as changed you'll need to follow the steps under [this page](RunningHardwareDesigns.md).
 - If the C/C++ project changes in the SDK, you have nothing to do.
