@@ -33,7 +33,10 @@ Note: if you're running the sample from a freshly created Vivado projects you ca
 Once the bitstream is generated you need to program the FPGA with the hardware design before being able to launch the SDK project.
 
 1. Connect the FPGA via USB with the supplied cable (don't forget to turn it on), click "Open Hardware Manager" (Flow/Hardware Manager or from the bottom of the left-hand "Flow Navigator" pane), then "Open target", select "Auto connect" and let the board be auto-detected.
-2. Load the hardware design onto the FPGA by doing the following: Right click on the listed FPGA and select "Program Device", then click "Program".
+2. Load the hardware design onto the FPGA by doing the following: Right click on the listed FPGA and select "Program Device", then click "Program". If you're using a Nexys 4 DDR board then for this to work some jumpers on your board need to be set correctly (but these come like this, so should already be the same):
+	- JP1/MODE: QSPI (left)
+	- JP2: SD (top)
+	- JP3: USB (left)
 3. Export the design to the SDK from under File/Export/Export Hardware. Tick "Include bitstream" and choose the project's generated *SDK* folder as the destination.
 
 	![Export Hardware](Images/ExportHardwareToSDK.png)
@@ -50,4 +53,4 @@ Once the bitstream is generated you need to program the FPGA with the hardware d
 
 	![Xilinx SDK Debug perspective](Images/XilinxSdkDebugPerspective.png)
 
-8. Now you can start the host component of Hastlayer from Visual Studio and invocations on hardware entry points will be transferred to the FPGA.
+8. Now you can start the host component of Hastlayer from Visual Studio and invocations on hardware entry points will be transferred to the FPGA. If this is the first time you run a hardware design after setting up Hastlayer check if the SDK program is indeed running on the FPGA by clicking the Suspend (pause) button. The program's execution should properly halt at one point, after which you can resume it (if there are issues with the program it won't pause and you'll get some error message).
