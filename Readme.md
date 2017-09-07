@@ -2,8 +2,9 @@
 
 
 
-This document is a guideline which provides a brief description of the **Hastlayer Hardware Framework**.
-The aim of this document is to help the reader to reconstruct and test the **Hastlayer FPGA firmware design** and to give a hand when you run into a problem.
+This document is a guideline which provides a brief description of the **Hastlayer Hardware Framework** for Xilinx FPGAs. The aim of this document is to help the reader to reconstruct and test the **Hastlayer FPGA firmware design** and to give a hand when you run into a problem.
+
+If you're not familiar with Hastlayer take a look at [https://hastlayer.com/](https://hastlayer.com/).
 
 
 ## Table of contents
