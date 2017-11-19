@@ -1,4 +1,4 @@
-# Hastlayer Hardware Framework readme
+# Hastlayer Hardware Framework - Xilinx readme
 
 
 
