@@ -2,6 +2,8 @@
 open_project ./Project/Hastlayer.xpr
 
 # Updating Hast_IP
+# First touching the file so Vivado notice it changing and so the IP can be updated.
+file mtime ./IPRepo/Hast_IP.vhd [clock seconds]
 update_ip_catalog -rebuild -scan_changes
 report_ip_status -name ip_status
 upgrade_ip -vlnv xilinx.com:user:Hast_IP:1.0 [get_ips  Hastlayer_Hast_IP_0_0] -log ip_upgrade.log
