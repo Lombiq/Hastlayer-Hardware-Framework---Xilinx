@@ -12,6 +12,7 @@ If you're not familiar with Hastlayer take a look at [https://hastlayer.com/](ht
 - [Prerequisite requirements](Docs/Prerequisites.md)
 - [Getting started](Docs/GettingStarted.md)
 - [Running hardware designs](Docs/RunningHardwareDesigns.md)
+- [Release notes](Docs/ReleaseNotes.md)
 - [Version control](Docs/VersionControl.md)
 - [Upgrading the project to the latest Vivado version](Docs/UpgradingToNewVivado.md)
 - [Design reproduction steps](Docs/ReproductionSteps.md)
