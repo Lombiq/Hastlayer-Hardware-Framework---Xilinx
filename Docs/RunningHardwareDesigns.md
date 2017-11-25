@@ -72,10 +72,9 @@ If the script fails for some reason you can do the same manually:
 
 Once the SDK is running do the following:
 
-1. Build the project in the SDK. This should happen automatically, but if not, right click on the `HastlayerOperatingSystem` project and select Build Project.
-2. Now you can launch the embedded software on the FPGA to make it listen to input:
+1. Launch the embedded software on the FPGA to make it listen to input:
 	1. Select Run/Debug Configurations.
-	2. Select the existing configuration named "Debug" under "Xilinx C/C++ application (GDB).
+	2. Select the existing configuration named "Debug" under "Xilinx C/C++ application (GDB) and click the "Debug" button. If that's inactive then build the `HastlayerOperatingSystem` project (although this should happen automatically): Right click on the project and select "Build Project".
 3. The program will start running on the FPGA and you'll even be able to set breakpoints and see the application's state in the debugger. You should see the SDK's Debug perspective:
 
 	![Xilinx SDK Debug perspective](Images/XilinxSdkDebugPerspective.png)
