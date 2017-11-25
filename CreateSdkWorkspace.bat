@@ -30,7 +30,7 @@ echo Moving SDK folder...
 move SDK SDKImport
 mkdir SDK
 
-cmd /c %sdkpath% -batch -source mksdk.tcl
+cmd /c %sdkpath% -batch -source CreateSdkWorkspace.tcl
 copy SDKImport\Hastlayer_wrapper.hdf SDK\Hastlayer_wrapper.hdf
 copy SDKImport\.launch SDK\.launch
 mkdir SDK\.metadata\.plugins\org.eclipse.debug.core\.launches

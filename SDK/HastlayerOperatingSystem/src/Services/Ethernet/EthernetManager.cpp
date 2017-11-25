@@ -40,7 +40,7 @@ int EthernetManager::Initialize(unsigned char* macAddress, struct netif* network
 
 	if (_networkInterfaceIsInitialized)
 	{
-		HASTLAYER_DEBUG_WARNING("Network interface has already been initalized.", NULL);
+		HASTLAYER_DEBUG_WARNING("Network interface has already been initialized.", NULL);
 		return EthernetCommunicationConstants::EthernetInitializationReturnCodes::Success;
 	}
 
