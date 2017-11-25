@@ -117,7 +117,7 @@ set imported_files [import_files -fileset sources_1 $files]
 # None
 
 # @ manually edited: Make block design
-source mkbd.tcl
+source CreateBlockDesign.tcl
 
 # Set 'sources_1' fileset file properties for local files
 set file "Hastlayer/Hastlayer.bd"

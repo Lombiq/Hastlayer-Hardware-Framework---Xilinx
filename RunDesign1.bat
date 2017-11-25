@@ -2,4 +2,4 @@
 
 title Running the hardware design...
 
-runtcl rundesign.tcl
+RunTcl RunDesign.tcl

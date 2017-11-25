@@ -2,4 +2,4 @@
 
 title Updating the hardware design...
 
-runtcl updatedesign.tcl
+RunTcl UpdateDesign.tcl

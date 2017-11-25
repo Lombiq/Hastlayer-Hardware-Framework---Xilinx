@@ -50,7 +50,7 @@ If you're using a Nexys 4 DDR board then for this to work some jumpers on your b
 Try the automated approach first:
 
 1. Connect the FPGA via USB with the supplied cable and don't forget to turn it on with the on-board switch.
-2. Run the *rundesign.bat* script.
+2. Run the *RunDesign.bat* script.
 
 This will launch the Xilinx SDK from where you can start the program on the FPGA that'll listen to input and dispatch it to the generated hardware component. Follow up with the guide below.
 
