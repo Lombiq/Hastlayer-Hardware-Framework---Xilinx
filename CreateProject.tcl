@@ -195,3 +195,10 @@ set_property "steps.write_bitstream.args.verbose" "0" $obj
 current_run -implementation [get_runs impl_1]
 
 puts "INFO: Project created:Hastlayer"
+
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1 
+
+# Exporting the design to the SDK
+file copy -force ./Project/Hastlayer.runs/impl_1/Hastlayer_wrapper.sysdef ./SDK/Hastlayer_wrapper.hdf
