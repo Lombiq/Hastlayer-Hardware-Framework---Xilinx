@@ -31,10 +31,11 @@ If the script fails for some reason you can do the same manually:
 7. After the upgrade is done Vivado will ask you to generate output products for the project, so do so. This will take a bit.
 8. Once done with this you can generate the bitstream from the design; this will be loaded onto the FPGA to configure it. Do so by selecting "Generate Bitstream" from under Flow/Generate Bitstream or from the bottom of the left-hand "Flow Navigator" pane. 
 
-
 Bitstream generation will take a while, depending on the complexity of the design it can be as long as an hour or more. Once it's completed you can follow up with the next section. But first make sure that the the design will fit on the FPGA: Post-Implementation resource utilization (check it in the Project Summary window that will open after bitstream generation) should be below 80% for every kind of resource.
 
 ![Resource Utilization](Images/ResourceUtilization.png)
+
+**If you cancel bitstream generation then always purge/re-clone the hardware repository and re-create the project!** Otherwise parts of the previous hardware design will remain stuck in Vivado and you'll get incorrect results.
 
 
 ## Running the hardware design

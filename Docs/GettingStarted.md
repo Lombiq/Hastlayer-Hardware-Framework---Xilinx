@@ -12,13 +12,13 @@ By the end of this guide you should have Hastlayer set up to be able to run the 
 We use the TCL-based approach for keeping a minimum set of required files under version control.
 
 
-## Generating the Vivado project with batch file (CreateProject.bat)
+## Generating the Vivado project with the batch file (CreateProject.bat)
 
-Run `CreateProject.bat` which will open Vivado, and generate the project files in the `project` subdirectory.
+Run `CreateProject.bat` which will open Vivado, generate the project files in the *Project* subdirectory and generate the bitstream for the sample hardware design.
 
-Once the project has been generated, you can re-open it next time by entering the `project` subdirectory and opening `Hastlayer.xpr`.
+Once the project has been generated, you can re-open it next time by entering the *Project* subdirectory and opening `Hastlayer.xpr`.
 
-> The project subdirectory will not be checked into version control, it only contains all the temporary files needed for editing and compiling the project and its corresponding IP cores.
+> The *Project* subdirectory will not be checked into version control, it only contains all the temporary files needed for editing and compiling the project and its corresponding IP cores.
 
 
 ## Generating the Vivado project manually
@@ -30,15 +30,14 @@ If the *Create file associations* option is not selected while installing Vivado
 
 (Do not forget that we have to use the slash '/' inside the paths here, instead of the Windows default backslash.)
 
-
-## Generating the SDK workspace with batch file (CreateSdkWorkspace.bat)
-
-To start the Xilinx SDK, you will have to *Generate bitstream* in Vivado, wait until the process ends, and choose *Export → Export Hardware*.
-In the dialog that appears, choose the `SDK` folder in the root of the repository, then click OK.
+Once this is done you'll have to click *Generate Bitstream* in Vivado, wait until the process ends, and choose *Export → Export Hardware*.
 
 ![Export Hardware](Images/ExportHardwareToSDK.png)
 
-For the first time, you will have to run `CreateSdkWorkspace.bat` from the root of the repository, which will create the workspace in the `sdk` directory, and it will also import the projects into it.
+
+## Generating the SDK workspace with the batch file (CreateSdkWorkspace.bat)
+
+For the first time, you will have to run `CreateSdkWorkspace.bat` from the root of the repository, which will create the workspace in the *SDK* directory, and it will also import the projects into it.
 
 Close any program that may lock the SDK folder, including Explorer, if you receive the following error:
 
@@ -73,7 +72,7 @@ If you run into problems while building a project, try this:
 
 If `CreateSdkWorkspace.bat` accidentally fails, you create the workspace manually:
 
-Launch Xilinx SDK from Vivado, selecting the the `sdk` folder as your workspace.
+Launch Xilinx SDK from Vivado, selecting the the _SDK_ folder as your workspace.
 
 ![Launch SDK](Images/LaunchSDK.png)
 
