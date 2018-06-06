@@ -12,7 +12,7 @@ Try the automated approach first:
 1. Generate the hardware description with the .NET component of Hastlayer. Make sure to configure it to write out the VHDL source code to a file as in the samples.
 2. Once the file is created locate the source file that you'll need to overwrite with it in the Hardware repo's clone: It's under *IPRepo\Hast_IP.vhd* on the file system (this contains the `PrimeCalculator` sample by default). (IP means "intellectual property" here, as in "IP core", i.e. self-contained hardware component).
 3. Overwrite the file the the generated one (or you can configure Hastlayer to save the file straight to that location).
-4. Run the *updatedesign.bat* script to update the hardware design with the newly generated *Hast_IP.vhd* and generate the corresponding FPGA configuration bitstream.
+4. Run the *UpdateDesign.bat* script to update the hardware design with the newly generated *Hast_IP.vhd* and generate the corresponding FPGA configuration bitstream.
 
 If the script fails for some reason you can do the same manually:
 
