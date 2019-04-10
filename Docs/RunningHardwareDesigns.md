@@ -40,7 +40,7 @@ Bitstream generation will take a while, depending on the complexity of the desig
 
 ## Running the hardware design
 
-Once the bitstream is generated you need to program the FPGA with the hardware design before being able to launch the SDK project.
+Once the bitstream is generated you need to program the FPGA with the hardware design before being able to launch the SDK project. Note: you can also use a bitstream generated on another machine to program a local FPGA; for that you'll need to copy over the *Project\Hastlayer.runs* folder to the local Vivado folder and it'll be picked up just as if you generated it locally.
 
 If you're using a Nexys 4 DDR board then for this to work some jumpers on your board need to be set correctly (but these come like this, so should already be the same):
 
