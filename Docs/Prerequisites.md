@@ -22,8 +22,6 @@ Use Vivado **2016.4 (64-bit)** and the corresponding Xilinx Software Development
 	![Vivado installation items](Images/VivadoInstallationItems.png)
 
 
-## Digilent Nexys 4 DDR board files installation
+## Digilent Nexys A7 / Nexys 4 DDR board files installation
 
-Download the **Nexys 4 DDR board files** from [Vivado Board Files for Digilent 7-Series FPGA Boards](https://reference.digilentinc.com/vivado:boardfiles2015).
-
-Follow the instructions in the description (merge the contents of the downloaded .zip file with the existing Vivado board files; it can be found under a path like C:\Xilinx\Vivado\2016.4\data\boards\board_files\). Now you should be able to choose the Nexys 4 DDR board in Vivado when you create a new project.
+Download the **Digilent board files** from and follow the instructions on the [Digilent website](https://reference.digilentinc.com/vivado/installing-vivado/start). Now you should be able to choose Digilent boards in Vivado when you create a new project.
