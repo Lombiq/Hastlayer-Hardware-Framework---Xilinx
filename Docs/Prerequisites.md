@@ -12,7 +12,7 @@ On the [Xilinx memory recommendations](http://www.xilinx.com/design-tools/vivado
 
 ## Software requirements
 
-Use Vivado **2017.1 (64-bit)** and the corresponding Xilinx Software Development Kit (SDK). Some notes:
+Use Vivado **2019.1 (64-bit)** and the corresponding Xilinx Software Development Kit (SDK). Some notes:
 
 - Use exactly the above version. No other version, be it newer or older, will be compatible.
 - You can download the WebPACK version of Vivado for free from [Xilinx's website](https://www.xilinx.com/support/download.html).
