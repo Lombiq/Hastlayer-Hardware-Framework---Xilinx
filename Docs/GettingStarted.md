@@ -14,7 +14,7 @@ We use the TCL-based approach for keeping a minimum set of required files under 
 
 ## Generating the Vivado project with the batch file (CreateProject.bat)
 
-Run `CreateProject.bat` which will open Vivado, generate the project files in the *Project* subdirectory and generate the bitstream for the sample hardware design. When the bitstream generation completed, it will also export the Hastlayer_wrapper.hdf to the ./SDK folder. The .hdf file is the Hardware Definition file, which is a description of the FPGA design peripherals and IP cores. It will be used during the Xilinx SDK workspace creation.
+Run `CreateProject.bat` which will open Vivado, generate the project files in the *Project* subdirectory and generate the bitstream for the sample hardware design. When the bitstream generation is completed, it will also export the *Hastlayer_wrapper.hdf* file to the *./SDK* folder. The .hdf file is the Hardware Definition file, which is a description of the FPGA design peripherals and IP cores. It will be used during the Xilinx SDK workspace creation.
 
 Once the project has been generated, you can re-open it next time by entering the *Project* subdirectory and opening `Hastlayer.xpr`.
 
@@ -30,7 +30,7 @@ If the *Create file associations* option is not selected while installing Vivado
 
 (Do not forget that we have to use the slash '/' inside the paths here, instead of the Windows default backslash.)
 
-Once this is done you'll have to click *Generate Bitstream* in Vivado, and wait until the process ends. When the bitstream generation completed, go to the File menu, and choose *Export, Export Hardware* with the option *Include bitstream*. For the location select the .SDK folder.
+Once this is done you'll have to click *Generate Bitstream* in Vivado, and wait until the process ends. When the bitstream generation is completed, go to the File menu, and choose *Export, Export Hardware* with the option *Include bitstream*. For the location select the .SDK folder.
 
 ![Export Hardware](Images/ExportHardwareToSDK.png)
 
