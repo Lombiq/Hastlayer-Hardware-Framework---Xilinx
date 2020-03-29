@@ -12,12 +12,12 @@ On the [Xilinx memory recommendations](http://www.xilinx.com/design-tools/vivado
 
 ## Software requirements
 
-Use Vivado **2016.4 (64-bit)** and the corresponding Xilinx Software Development Kit (SDK). Some notes:
+Use Vivado **2017.1 (64-bit)** and the corresponding Xilinx Software Development Kit (SDK). Some notes:
 
 - Use exactly the above version. No other version, be it newer or older, will be compatible.
 - You can download the WebPACK version of Vivado for free from [Xilinx's website](https://www.xilinx.com/support/download.html).
 - Install Vivado under a path without special characters or spaces and also put your projects under similarly simple paths! Otherwise a lot of things will mysteriously fail in Vivado (e.g. with the TCL error "TclStackFree: incorrect freePtr. Call out of sequence?") and also in Xilinx SDK. You can also use symlinks to provide such a path to an otherwise problematic one.
-- During installation select everything you can to install.
+- During installation, when you need to select the Xilinx devices to install, you only need to add Artix7. You can deselect all other devices, this way you will save some disk space.
 
 	![Vivado installation items](Images/VivadoInstallationItems.png)
 

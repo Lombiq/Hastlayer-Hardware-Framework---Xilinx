@@ -1,112 +1,58 @@
+# Proc to create BD Hastlayer
+proc cr_bd_Hastlayer { parentCell } {
 
-################################################################
-# This is a generated script based on design: Hastlayer
-#
-# Though there are limitations about the generated script,
-# the main purpose of this utility is to make learning
-# IP Integrator Tcl commands easier.
-################################################################
+  # CHANGE DESIGN NAME HERE
+  set design_name Hastlayer
 
-################################################################
-# Check if script is running in correct Vivado version.
-################################################################
-set scripts_vivado_version 2016.4
-set current_vivado_version [version -short]
+  common::send_msg_id "BD_TCL-003" "INFO" "Currently there is no design <$design_name> in project, so creating one..."
 
-if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
-   puts ""
-   puts "ERROR: This script was generated using Vivado <$scripts_vivado_version> and is being run in <$current_vivado_version> of Vivado. Please run the script in Vivado <$scripts_vivado_version> then open the design in Vivado <$current_vivado_version>. Upgrade the design by running \"Tools => Report => Report IP Status...\", then run write_bd_tcl to create an updated script."
+  create_bd_design $design_name
 
-   return 1
-}
+  set bCheckIPsPassed 1
+  ##################################################################
+  # CHECK IPs
+  ##################################################################
+  set bCheckIPs 1
+  if { $bCheckIPs == 1 } {
+     set list_check_ips "\ 
+  xilinx.com:user:Hast_IP:1.0\
+  xilinx.com:ip:axi_ethernetlite:3.0\
+  xilinx.com:ip:axi_intc:4.1\
+  xilinx.com:ip:axi_timer:2.0\
+  xilinx.com:ip:axi_uartlite:2.0\
+  xilinx.com:ip:clk_wiz:6.0\
+  xilinx.com:ip:mdm:3.2\
+  xilinx.com:ip:microblaze:11.0\
+  xilinx.com:ip:mig_7series:4.2\
+  xilinx.com:ip:mii_to_rmii:2.0\
+  xilinx.com:ip:proc_sys_reset:5.0\
+  xilinx.com:ip:xlconcat:2.1\
+  xilinx.com:ip:lmb_bram_if_cntlr:4.0\
+  xilinx.com:ip:lmb_v10:3.0\
+  xilinx.com:ip:blk_mem_gen:8.4\
+  "
 
-################################################################
-# START
-################################################################
+   set list_ips_missing ""
+   common::send_msg_id "BD_TCL-006" "INFO" "Checking if the following IPs exist in the project's IP catalog: $list_check_ips ."
 
-# To test this script, run the following commands from Vivado Tcl console:
-# source Hastlayer_script.tcl
-
-# If you do not already have a project created,
-# you can create a project using the following command:
-#    create_project project_1 myproj -part xc7a100tcsg324-1
-#    set_property BOARD_PART digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
-
-# CHECKING IF PROJECT EXISTS
-if { [get_projects -quiet] eq "" } {
-   puts "ERROR: Please open or create a project!"
-   return 1
-}
-
-
-
-# CHANGE DESIGN NAME HERE
-set design_name Hastlayer
-
-# If you do not already have an existing IP Integrator design open,
-# you can create a design using the following command:
-#    create_bd_design $design_name
-
-# Creating design if needed
-set errMsg ""
-set nRet 0
-
-set cur_design [current_bd_design -quiet]
-set list_cells [get_bd_cells -quiet]
-
-if { ${design_name} eq "" } {
-   # USE CASES:
-   #    1) Design_name not set
-
-   set errMsg "ERROR: Please set the variable <design_name> to a non-empty value."
-   set nRet 1
-
-} elseif { ${cur_design} ne "" && ${list_cells} eq "" } {
-   # USE CASES:
-   #    2): Current design opened AND is empty AND names same.
-   #    3): Current design opened AND is empty AND names diff; design_name NOT in project.
-   #    4): Current design opened AND is empty AND names diff; design_name exists in project.
-
-   if { $cur_design ne $design_name } {
-      puts "INFO: Changing value of <design_name> from <$design_name> to <$cur_design> since current design is empty."
-      set design_name [get_property NAME $cur_design]
+   foreach ip_vlnv $list_check_ips {
+      set ip_obj [get_ipdefs -all $ip_vlnv]
+      if { $ip_obj eq "" } {
+         lappend list_ips_missing $ip_vlnv
+      }
    }
-   puts "INFO: Constructing design in IPI design <$cur_design>..."
 
-} elseif { ${cur_design} ne "" && $list_cells ne "" && $cur_design eq $design_name } {
-   # USE CASES:
-   #    5) Current design opened AND has components AND same names.
+   if { $list_ips_missing ne "" } {
+      catch {common::send_msg_id "BD_TCL-115" "ERROR" "The following IPs are not found in the IP Catalog:\n  $list_ips_missing\n\nResolution: Please add the repository containing the IP(s) to the project." }
+      set bCheckIPsPassed 0
+   }
 
-   set errMsg "ERROR: Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
-   set nRet 1
-} elseif { [get_files -quiet ${design_name}.bd] ne "" } {
-   # USE CASES: 
-   #    6) Current opened design, has components, but diff names, design_name exists in project.
-   #    7) No opened design, design_name exists in project.
+  }
 
-   set errMsg "ERROR: Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
-   set nRet 2
-
-} else {
-   # USE CASES:
-   #    8) No opened design, design_name not in project.
-   #    9) Current opened design, has components, but diff names, design_name not in project.
-
-   puts "INFO: Currently there is no design <$design_name> in project, so creating one..."
-
-   create_bd_design $design_name
-
-   puts "INFO: Making design <$design_name> as current_bd_design."
-   current_bd_design $design_name
-
-}
-
-puts "INFO: Currently the variable <design_name> is equal to \"$design_name\"."
-
-if { $nRet != 0 } {
-   puts $errMsg
-   return $nRet
-}
+  if { $bCheckIPsPassed != 1 } {
+    common::send_msg_id "BD_TCL-1003" "WARNING" "Will not continue with creation of design due to the error(s) above."
+    return 3
+  }
 
 
 ##################################################################
@@ -115,6 +61,7 @@ if { $nRet != 0 } {
 
 proc write_mig_file_Hastlayer_mig_7series_0_0 { str_mig_prj_filepath } {
 
+   file mkdir [ file dirname "$str_mig_prj_filepath" ]
    set mig_prj_file [open $str_mig_prj_filepath  w+]
 
    puts $mig_prj_file {<?xml version='1.0' encoding='UTF-8'?>}
@@ -251,30 +198,28 @@ proc write_mig_file_Hastlayer_mig_7series_0_0 { str_mig_prj_filepath } {
 
 
 
-##################################################################
-# DESIGN PROCs
-##################################################################
-
-
+  
 # Hierarchical cell: microblaze_0_local_memory
 proc create_hier_cell_microblaze_0_local_memory { parentCell nameHier } {
 
+  variable script_folder
+
   if { $parentCell eq "" || $nameHier eq "" } {
-     puts "ERROR: create_hier_cell_microblaze_0_local_memory() - Empty argument(s)!"
+     catch {common::send_msg_id "BD_TCL-102" "ERROR" "create_hier_cell_microblaze_0_local_memory() - Empty argument(s)!"}
      return
   }
 
   # Get object for parentCell
   set parentObj [get_bd_cells $parentCell]
   if { $parentObj == "" } {
-     puts "ERROR: Unable to find parent cell <$parentCell>!"
+     catch {common::send_msg_id "BD_TCL-100" "ERROR" "Unable to find parent cell <$parentCell>!"}
      return
   }
 
   # Make sure parentObj is hier blk
   set parentType [get_property TYPE $parentObj]
   if { $parentType ne "hier" } {
-     puts "ERROR: Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."
+     catch {common::send_msg_id "BD_TCL-101" "ERROR" "Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."}
      return
   }
 
@@ -290,7 +235,9 @@ proc create_hier_cell_microblaze_0_local_memory { parentCell nameHier } {
 
   # Create interface pins
   create_bd_intf_pin -mode MirroredMaster -vlnv xilinx.com:interface:lmb_rtl:1.0 DLMB
+
   create_bd_intf_pin -mode MirroredMaster -vlnv xilinx.com:interface:lmb_rtl:1.0 ILMB
+
 
   # Create pins
   create_bd_pin -dir I -type clk LMB_Clk
@@ -299,7 +246,7 @@ proc create_hier_cell_microblaze_0_local_memory { parentCell nameHier } {
   # Create instance: dlmb_bram_if_cntlr, and set properties
   set dlmb_bram_if_cntlr [ create_bd_cell -type ip -vlnv xilinx.com:ip:lmb_bram_if_cntlr:4.0 dlmb_bram_if_cntlr ]
   set_property -dict [ list \
-CONFIG.C_ECC {0} \
+   CONFIG.C_ECC {0} \
  ] $dlmb_bram_if_cntlr
 
   # Create instance: dlmb_v10, and set properties
@@ -308,17 +255,23 @@ CONFIG.C_ECC {0} \
   # Create instance: ilmb_bram_if_cntlr, and set properties
   set ilmb_bram_if_cntlr [ create_bd_cell -type ip -vlnv xilinx.com:ip:lmb_bram_if_cntlr:4.0 ilmb_bram_if_cntlr ]
   set_property -dict [ list \
-CONFIG.C_ECC {0} \
+   CONFIG.C_ECC {0} \
  ] $ilmb_bram_if_cntlr
 
   # Create instance: ilmb_v10, and set properties
   set ilmb_v10 [ create_bd_cell -type ip -vlnv xilinx.com:ip:lmb_v10:3.0 ilmb_v10 ]
 
   # Create instance: lmb_bram, and set properties
-  set lmb_bram [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.3 lmb_bram ]
+  set lmb_bram [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 lmb_bram ]
   set_property -dict [ list \
-CONFIG.Memory_Type {True_Dual_Port_RAM} \
-CONFIG.use_bram_block {BRAM_Controller} \
+   CONFIG.EN_SAFETY_CKT {false} \
+   CONFIG.Enable_B {Use_ENB_Pin} \
+   CONFIG.Memory_Type {True_Dual_Port_RAM} \
+   CONFIG.Port_B_Clock {100} \
+   CONFIG.Port_B_Enable_Rate {100} \
+   CONFIG.Port_B_Write_Rate {50} \
+   CONFIG.Use_RSTB_Pin {true} \
+   CONFIG.use_bram_block {BRAM_Controller} \
  ] $lmb_bram
 
   # Create interface connections
@@ -336,11 +289,7 @@ CONFIG.use_bram_block {BRAM_Controller} \
   # Restore current instance
   current_bd_instance $oldCurInst
 }
-
-
-# Procedure to create entire design; Provide argument to make
-# procedure reusable. If parentCell is "", will use root.
-proc create_root_design { parentCell } {
+  variable script_folder
 
   if { $parentCell eq "" } {
      set parentCell [get_bd_cells /]
@@ -349,14 +298,14 @@ proc create_root_design { parentCell } {
   # Get object for parentCell
   set parentObj [get_bd_cells $parentCell]
   if { $parentObj == "" } {
-     puts "ERROR: Unable to find parent cell <$parentCell>!"
+     catch {common::send_msg_id "BD_TCL-100" "ERROR" "Unable to find parent cell <$parentCell>!"}
      return
   }
 
   # Make sure parentObj is hier blk
   set parentType [get_property TYPE $parentObj]
   if { $parentType ne "hier" } {
-     puts "ERROR: Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."
+     catch {common::send_msg_id "BD_TCL-101" "ERROR" "Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."}
      return
   }
 
@@ -369,35 +318,39 @@ proc create_root_design { parentCell } {
 
   # Create interface ports
   set DDR2 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:ddrx_rtl:1.0 DDR2 ]
+
   set ETH_mdio_mdc [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:mdio_rtl:1.0 ETH_mdio_mdc ]
+
   set ETH_rmii [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:rmii_rtl:1.0 ETH_rmii ]
+
   set USB_Uart [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:uart_rtl:1.0 USB_Uart ]
+
 
   # Create ports
   set eth_ref_clk [ create_bd_port -dir O -type clk eth_ref_clk ]
   set m00_axi_init_axi_txn [ create_bd_port -dir I m00_axi_init_axi_txn ]
   set reset [ create_bd_port -dir I -type rst reset ]
   set_property -dict [ list \
-CONFIG.POLARITY {ACTIVE_LOW} \
+   CONFIG.POLARITY {ACTIVE_LOW} \
  ] $reset
   set sys_clock [ create_bd_port -dir I -type clk sys_clock ]
   set_property -dict [ list \
-CONFIG.FREQ_HZ {100000000} \
-CONFIG.PHASE {0.000} \
+   CONFIG.FREQ_HZ {100000000} \
+   CONFIG.PHASE {0.000} \
  ] $sys_clock
 
   # Create instance: Hast_IP_0, and set properties
   set Hast_IP_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:Hast_IP:1.0 Hast_IP_0 ]
   set_property -dict [ list \
-CONFIG.C_M00_AXI_BURST_LEN {1} \
-CONFIG.C_M00_AXI_TARGET_SLAVE_BASE_ADDR {0x48FFFFF0} \
+   CONFIG.C_M00_AXI_BURST_LEN {1} \
+   CONFIG.C_M00_AXI_TARGET_SLAVE_BASE_ADDR {0x48FFFFF0} \
  ] $Hast_IP_0
 
   # Create instance: axi_ethernetlite_0, and set properties
   set axi_ethernetlite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_ethernetlite:3.0 axi_ethernetlite_0 ]
   set_property -dict [ list \
-CONFIG.MDIO_BOARD_INTERFACE {Custom} \
-CONFIG.USE_BOARD_FLOW {true} \
+   CONFIG.MDIO_BOARD_INTERFACE {Custom} \
+   CONFIG.USE_BOARD_FLOW {true} \
  ] $axi_ethernetlite_0
 
   # Create instance: axi_intc_0, and set properties
@@ -406,8 +359,9 @@ CONFIG.USE_BOARD_FLOW {true} \
   # Create instance: axi_mem_intercon, and set properties
   set axi_mem_intercon [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_mem_intercon ]
   set_property -dict [ list \
-CONFIG.NUM_MI {1} \
-CONFIG.NUM_SI {3} \
+   CONFIG.NUM_MI {1} \
+   CONFIG.NUM_SI {3} \
+   CONFIG.SYNCHRONIZATION_STAGES {2} \
  ] $axi_mem_intercon
 
   # Create instance: axi_timer_0, and set properties
@@ -416,61 +370,69 @@ CONFIG.NUM_SI {3} \
   # Create instance: axi_uartlite_0, and set properties
   set axi_uartlite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uartlite:2.0 axi_uartlite_0 ]
   set_property -dict [ list \
-CONFIG.C_BAUDRATE {230400} \
-CONFIG.UARTLITE_BOARD_INTERFACE {Custom} \
-CONFIG.USE_BOARD_FLOW {true} \
+   CONFIG.C_BAUDRATE {110} \
+   CONFIG.UARTLITE_BOARD_INTERFACE {Custom} \
+   CONFIG.USE_BOARD_FLOW {true} \
  ] $axi_uartlite_0
 
   # Create instance: clk_wiz_1, and set properties
-  set clk_wiz_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:5.3 clk_wiz_1 ]
+  set clk_wiz_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_1 ]
   set_property -dict [ list \
-CONFIG.CLKOUT2_JITTER {114.829} \
-CONFIG.CLKOUT2_PHASE_ERROR {98.575} \
-CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {200.000} \
-CONFIG.CLKOUT2_USED {true} \
-CONFIG.CLKOUT3_JITTER {151.636} \
-CONFIG.CLKOUT3_PHASE_ERROR {98.575} \
-CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {50.000} \
-CONFIG.CLKOUT3_USED {true} \
-CONFIG.CLK_IN1_BOARD_INTERFACE {Custom} \
-CONFIG.MMCM_CLKOUT2_DIVIDE {20} \
-CONFIG.MMCM_DIVCLK_DIVIDE {1} \
-CONFIG.NUM_OUT_CLKS {3} \
-CONFIG.PRIM_SOURCE {Single_ended_clock_capable_pin} \
-CONFIG.RESET_BOARD_INTERFACE {Custom} \
-CONFIG.RESET_TYPE {ACTIVE_LOW} \
-CONFIG.USE_BOARD_FLOW {true} \
+   CONFIG.CLKOUT1_JITTER {130.958} \
+   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {100.000} \
+   CONFIG.CLKOUT2_JITTER {114.829} \
+   CONFIG.CLKOUT2_PHASE_ERROR {98.575} \
+   CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {200.000} \
+   CONFIG.CLKOUT2_USED {true} \
+   CONFIG.CLKOUT3_JITTER {151.636} \
+   CONFIG.CLKOUT3_PHASE_ERROR {98.575} \
+   CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {50.000} \
+   CONFIG.CLKOUT3_USED {true} \
+   CONFIG.CLK_IN1_BOARD_INTERFACE {Custom} \
+   CONFIG.MMCM_CLKIN1_PERIOD {10.000} \
+   CONFIG.MMCM_CLKIN2_PERIOD {10.000} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {10.000} \
+   CONFIG.MMCM_CLKOUT1_DIVIDE {5} \
+   CONFIG.MMCM_CLKOUT2_DIVIDE {20} \
+   CONFIG.MMCM_DIVCLK_DIVIDE {1} \
+   CONFIG.NUM_OUT_CLKS {3} \
+   CONFIG.PRIM_SOURCE {Single_ended_clock_capable_pin} \
+   CONFIG.RESET_BOARD_INTERFACE {Custom} \
+   CONFIG.RESET_PORT {resetn} \
+   CONFIG.RESET_TYPE {ACTIVE_LOW} \
+   CONFIG.USE_BOARD_FLOW {true} \
  ] $clk_wiz_1
 
   # Create instance: mdm_1, and set properties
   set mdm_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mdm:3.2 mdm_1 ]
 
   # Create instance: microblaze_0, and set properties
-  set microblaze_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:microblaze:10.0 microblaze_0 ]
+  set microblaze_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:microblaze:11.0 microblaze_0 ]
   set_property -dict [ list \
-CONFIG.C_CACHE_BYTE_SIZE {16384} \
-CONFIG.C_DCACHE_BYTE_SIZE {16384} \
-CONFIG.C_DCACHE_LINE_LEN {8} \
-CONFIG.C_DEBUG_ENABLED {1} \
-CONFIG.C_D_AXI {1} \
-CONFIG.C_D_LMB {1} \
-CONFIG.C_ICACHE_LINE_LEN {8} \
-CONFIG.C_I_LMB {1} \
-CONFIG.C_USE_DCACHE {1} \
-CONFIG.C_USE_ICACHE {1} \
+   CONFIG.C_CACHE_BYTE_SIZE {16384} \
+   CONFIG.C_DCACHE_BYTE_SIZE {16384} \
+   CONFIG.C_DCACHE_LINE_LEN {8} \
+   CONFIG.C_DEBUG_ENABLED {1} \
+   CONFIG.C_D_AXI {1} \
+   CONFIG.C_D_LMB {1} \
+   CONFIG.C_ICACHE_LINE_LEN {8} \
+   CONFIG.C_I_LMB {1} \
+   CONFIG.C_USE_DCACHE {1} \
+   CONFIG.C_USE_ICACHE {1} \
  ] $microblaze_0
 
   # Create instance: microblaze_0_axi_periph, and set properties
   set microblaze_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 microblaze_0_axi_periph ]
   set_property -dict [ list \
-CONFIG.NUM_MI {5} \
+   CONFIG.NUM_MI {5} \
+   CONFIG.SYNCHRONIZATION_STAGES {2} \
  ] $microblaze_0_axi_periph
 
   # Create instance: microblaze_0_local_memory
   create_hier_cell_microblaze_0_local_memory [current_bd_instance .] microblaze_0_local_memory
 
   # Create instance: mig_7series_0, and set properties
-  set mig_7series_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mig_7series:4.0 mig_7series_0 ]
+  set mig_7series_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mig_7series:4.2 mig_7series_0 ]
 
   # Generate the PRJ File for MIG
   set str_mig_folder [get_property IP_DIR [ get_ips [ get_property CONFIG.Component_Name $mig_7series_0 ] ] ]
@@ -480,23 +442,23 @@ CONFIG.NUM_MI {5} \
   write_mig_file_Hastlayer_mig_7series_0_0 $str_mig_file_path
 
   set_property -dict [ list \
-CONFIG.BOARD_MIG_PARAM {Custom} \
-CONFIG.RESET_BOARD_INTERFACE {reset} \
-CONFIG.XML_INPUT_FILE {mig_a.prj} \
+   CONFIG.BOARD_MIG_PARAM {Custom} \
+   CONFIG.RESET_BOARD_INTERFACE {reset} \
+   CONFIG.XML_INPUT_FILE {mig_a.prj} \
  ] $mig_7series_0
 
   # Create instance: mii_to_rmii_0, and set properties
   set mii_to_rmii_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mii_to_rmii:2.0 mii_to_rmii_0 ]
   set_property -dict [ list \
-CONFIG.RESET_BOARD_INTERFACE {Custom} \
-CONFIG.RMII_BOARD_INTERFACE {Custom} \
+   CONFIG.RESET_BOARD_INTERFACE {Custom} \
+   CONFIG.RMII_BOARD_INTERFACE {Custom} \
  ] $mii_to_rmii_0
 
   # Create instance: rst_clk_wiz_1_100M, and set properties
   set rst_clk_wiz_1_100M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_clk_wiz_1_100M ]
   set_property -dict [ list \
-CONFIG.RESET_BOARD_INTERFACE {Custom} \
-CONFIG.USE_BOARD_FLOW {true} \
+   CONFIG.RESET_BOARD_INTERFACE {Custom} \
+   CONFIG.USE_BOARD_FLOW {true} \
  ] $rst_clk_wiz_1_100M
 
   # Create instance: rst_mig_7series_0_81M, and set properties
@@ -548,99 +510,793 @@ CONFIG.USE_BOARD_FLOW {true} \
   connect_bd_net -net xlconcat_0_dout [get_bd_pins axi_intc_0/intr] [get_bd_pins xlconcat_0/dout]
 
   # Create address segments
-  create_bd_addr_seg -range 0x8000000 -offset 0x48000000 [get_bd_addr_spaces Hast_IP_0/M00_AXI] [get_bd_addr_segs mig_7series_0/memmap/memaddr] SEG_mig_7series_0_memaddr
-  create_bd_addr_seg -range 0x10000 -offset 0x44A00000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs Hast_IP_0/S00_AXI/S00_AXI_reg] SEG_Hast_IP_0_S00_AXI_reg
-  create_bd_addr_seg -range 0x10000 -offset 0x40E00000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs axi_ethernetlite_0/S_AXI/Reg] SEG_axi_ethernetlite_0_Reg
-  create_bd_addr_seg -range 0x10000 -offset 0x41200000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs axi_intc_0/s_axi/Reg] SEG_axi_intc_0_Reg
-  create_bd_addr_seg -range 0x10000 -offset 0x41C00000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs axi_timer_0/S_AXI/Reg] SEG_axi_timer_0_Reg
-  create_bd_addr_seg -range 0x10000 -offset 0x40600000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs axi_uartlite_0/S_AXI/Reg] SEG_axi_uartlite_0_Reg
-  create_bd_addr_seg -range 0x8000 -offset 0x0 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs microblaze_0_local_memory/dlmb_bram_if_cntlr/SLMB/Mem] SEG_dlmb_bram_if_cntlr_Mem
-  create_bd_addr_seg -range 0x8000 -offset 0x0 [get_bd_addr_spaces microblaze_0/Instruction] [get_bd_addr_segs microblaze_0_local_memory/ilmb_bram_if_cntlr/SLMB/Mem] SEG_ilmb_bram_if_cntlr_Mem
-  create_bd_addr_seg -range 0x8000000 -offset 0x48000000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs mig_7series_0/memmap/memaddr] SEG_mig_7series_0_memaddr
-  create_bd_addr_seg -range 0x8000000 -offset 0x48000000 [get_bd_addr_spaces microblaze_0/Instruction] [get_bd_addr_segs mig_7series_0/memmap/memaddr] SEG_mig_7series_0_memaddr
+  create_bd_addr_seg -range 0x08000000 -offset 0x48000000 [get_bd_addr_spaces Hast_IP_0/M00_AXI] [get_bd_addr_segs mig_7series_0/memmap/memaddr] SEG_mig_7series_0_memaddr
+  create_bd_addr_seg -range 0x00010000 -offset 0x44A00000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs Hast_IP_0/S00_AXI/S00_AXI_reg] SEG_Hast_IP_0_S00_AXI_reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x40E00000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs axi_ethernetlite_0/S_AXI/Reg] SEG_axi_ethernetlite_0_Reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x41200000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs axi_intc_0/S_AXI/Reg] SEG_axi_intc_0_Reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x41C00000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs axi_timer_0/S_AXI/Reg] SEG_axi_timer_0_Reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x40600000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs axi_uartlite_0/S_AXI/Reg] SEG_axi_uartlite_0_Reg
+  create_bd_addr_seg -range 0x00008000 -offset 0x00000000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs microblaze_0_local_memory/dlmb_bram_if_cntlr/SLMB/Mem] SEG_dlmb_bram_if_cntlr_Mem
+  create_bd_addr_seg -range 0x00008000 -offset 0x00000000 [get_bd_addr_spaces microblaze_0/Instruction] [get_bd_addr_segs microblaze_0_local_memory/ilmb_bram_if_cntlr/SLMB/Mem] SEG_ilmb_bram_if_cntlr_Mem
+  create_bd_addr_seg -range 0x08000000 -offset 0x48000000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs mig_7series_0/memmap/memaddr] SEG_mig_7series_0_memaddr
+  create_bd_addr_seg -range 0x08000000 -offset 0x48000000 [get_bd_addr_spaces microblaze_0/Instruction] [get_bd_addr_segs mig_7series_0/memmap/memaddr] SEG_mig_7series_0_memaddr
 
   # Perform GUI Layout
   regenerate_bd_layout -layout_string {
-   guistr: "# # String gsaved with Nlview 6.5.5  2015-06-26 bk=1.3371 VDI=38 GEI=35 GUI=JA:1.6
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
 #  -string -flagsOSRD
-preplace port USB_Uart -pg 1 -y 420 -defaultsOSRD
-preplace port m00_axi_init_axi_txn -pg 1 -y 810 -defaultsOSRD
-preplace port sys_clock -pg 1 -y 170 -defaultsOSRD
-preplace port DDR2 -pg 1 -y 160 -defaultsOSRD
-preplace port eth_ref_clk -pg 1 -y 360 -defaultsOSRD
-preplace port ETH_mdio_mdc -pg 1 -y 920 -defaultsOSRD
-preplace port reset -pg 1 -y 190 -defaultsOSRD
-preplace port ETH_rmii -pg 1 -y 850 -defaultsOSRD
-preplace inst mig_7series_0 -pg 1 -lvl 7 -y 200 -defaultsOSRD
-preplace inst axi_intc_0 -pg 1 -lvl 4 -y 600 -defaultsOSRD
-preplace inst rst_mig_7series_0_81M -pg 1 -lvl 5 -y 300 -defaultsOSRD
-preplace inst microblaze_0_axi_periph -pg 1 -lvl 3 -y 480 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 3 -y 820 -defaultsOSRD
-preplace inst axi_timer_0 -pg 1 -lvl 4 -y 880 -defaultsOSRD
-preplace inst mii_to_rmii_0 -pg 1 -lvl 7 -y 850 -defaultsOSRD
-preplace inst mdm_1 -pg 1 -lvl 4 -y 380 -defaultsOSRD
-preplace inst axi_ethernetlite_0 -pg 1 -lvl 6 -y 920 -defaultsOSRD
-preplace inst Hast_IP_0 -pg 1 -lvl 5 -y 760 -defaultsOSRD
-preplace inst microblaze_0 -pg 1 -lvl 5 -y 520 -defaultsOSRD
-preplace inst axi_uartlite_0 -pg 1 -lvl 7 -y 430 -defaultsOSRD
-preplace inst rst_clk_wiz_1_100M -pg 1 -lvl 2 -y 680 -defaultsOSRD
-preplace inst microblaze_0_local_memory -pg 1 -lvl 6 -y 540 -defaultsOSRD
-preplace inst clk_wiz_1 -pg 1 -lvl 1 -y 180 -defaultsOSRD
-preplace inst axi_mem_intercon -pg 1 -lvl 6 -y 170 -defaultsOSRD
-preplace netloc axi_intc_0_interrupt 1 4 1 1510
-preplace netloc mig_7series_0_mmcm_locked 1 4 4 1550 400 NJ 400 NJ 290 2710
-preplace netloc axi_ethernetlite_0_MDIO 1 6 2 N 920 NJ
-preplace netloc mig_7series_0_DDR2 1 7 1 N
-preplace netloc microblaze_0_axi_periph_M04_AXI 1 3 1 1130
-preplace netloc microblaze_0_Clk 1 1 6 360 360 800 700 1160 510 1480 620 2080 430 NJ
-preplace netloc microblaze_0_axi_periph_M03_AXI 1 3 1 1150
-preplace netloc Hast_IP_0_M00_AXI 1 5 1 2060
-preplace netloc microblaze_0_ilmb_1 1 5 1 2030
-preplace netloc microblaze_0_axi_periph_M00_AXI 1 3 4 N 440 NJ 390 NJ 390 NJ
-preplace netloc microblaze_0_M_AXI_DP 1 2 4 800 200 NJ 200 NJ 200 2000
-preplace netloc microblaze_0_M_AXI_DC 1 5 1 2010
-preplace netloc axi_mem_intercon_M00_AXI 1 6 1 N
-preplace netloc sys_clock_1 1 0 1 N
-preplace netloc mig_7series_0_ui_clk 1 4 4 1530 210 2100 360 NJ 350 2720
-preplace netloc mii_to_rmii_0_RMII_PHY_M 1 7 1 N
-preplace netloc xlconcat_0_dout 1 3 1 1180
-preplace netloc rst_mig_7series_0_81M_peripheral_aresetn 1 5 2 2110 370 NJ
-preplace netloc rst_clk_wiz_1_100M_interconnect_aresetn 1 2 4 780 130 NJ 130 NJ 130 N
-preplace netloc rst_clk_wiz_1_100M_bus_struct_reset 1 2 4 790 690 NJ 690 NJ 630 NJ
-preplace netloc microblaze_0_axi_periph_M01_AXI 1 3 2 N 460 NJ
-preplace netloc microblaze_0_M_AXI_IC 1 5 1 2020
-preplace netloc rst_clk_wiz_1_100M_peripheral_aresetn 1 2 5 810 710 1170 750 1520 860 2090 450 NJ
-preplace netloc rst_clk_wiz_1_100M_mb_reset 1 2 3 820 680 NJ 520 NJ
-preplace netloc clk_wiz_1_locked 1 1 1 350
-preplace netloc axi_uartlite_0_UART 1 7 1 N
-preplace netloc mig_7series_0_ui_clk_sync_rst 1 4 4 1540 410 NJ 410 NJ 310 2730
-preplace netloc clk_wiz_1_clk_out2 1 1 6 N 170 NJ 170 NJ 170 NJ 170 NJ 350 NJ
-preplace netloc axi_ethernetlite_0_ip2intc_irpt 1 2 5 810 980 NJ 980 NJ 980 NJ 850 2430
-preplace netloc microblaze_0_dlmb_1 1 5 1 2050
-preplace netloc microblaze_0_axi_periph_M02_AXI 1 3 3 N 480 NJ 430 NJ
-preplace netloc clk_wiz_1_clk_out3 1 1 7 N 190 NJ 190 NJ 190 NJ 190 NJ 380 2480 360 NJ
-preplace netloc microblaze_0_debug 1 4 1 1520
-preplace netloc axi_ethernetlite_0_MII 1 6 1 2490
-preplace netloc reset_1 1 0 7 190 100 370 280 NJ 280 NJ 280 NJ 420 NJ 420 2470
-preplace netloc mdm_1_debug_sys_rst 1 1 4 380 260 NJ 260 NJ 260 1460
-preplace netloc m00_axi_init_axi_txn_1 1 0 5 NJ 770 NJ 770 NJ 760 NJ 760 1470
-preplace netloc axi_timer_0_interrupt 1 2 3 810 740 NJ 740 1460
-levelinfo -pg 1 170 270 620 980 1350 1780 2270 2600 2760 -top 0 -bot 990
-",
+preplace port DDR2 -pg 1 -lvl 8 -x 2530 -y 240 -defaultsOSRD
+preplace port ETH_mdio_mdc -pg 1 -lvl 8 -x 2530 -y 470 -defaultsOSRD
+preplace port ETH_rmii -pg 1 -lvl 8 -x 2530 -y 550 -defaultsOSRD
+preplace port USB_Uart -pg 1 -lvl 8 -x 2530 -y 850 -defaultsOSRD
+preplace port eth_ref_clk -pg 1 -lvl 8 -x 2530 -y 940 -defaultsOSRD
+preplace port m00_axi_init_axi_txn -pg 1 -lvl 0 -x -10 -y 1010 -defaultsOSRD
+preplace port reset -pg 1 -lvl 0 -x -10 -y 730 -defaultsOSRD
+preplace port sys_clock -pg 1 -lvl 0 -x -10 -y 830 -defaultsOSRD
+preplace inst Hast_IP_0 -pg 1 -lvl 5 -x 1500 -y 960 -defaultsOSRD
+preplace inst microblaze_0_local_memory -pg 1 -lvl 6 -x 2010 -y 640 -defaultsOSRD
+preplace inst axi_ethernetlite_0 -pg 1 -lvl 6 -x 2010 -y 470 -defaultsOSRD
+preplace inst axi_intc_0 -pg 1 -lvl 4 -x 1110 -y 550 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 6 -x 2010 -y 180 -defaultsOSRD
+preplace inst axi_timer_0 -pg 1 -lvl 4 -x 1110 -y 330 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 7 -x 2350 -y 860 -defaultsOSRD
+preplace inst clk_wiz_1 -pg 1 -lvl 1 -x 110 -y 820 -defaultsOSRD
+preplace inst mdm_1 -pg 1 -lvl 4 -x 1110 -y 710 -defaultsOSRD
+preplace inst microblaze_0 -pg 1 -lvl 5 -x 1500 -y 580 -defaultsOSRD
+preplace inst microblaze_0_axi_periph -pg 1 -lvl 3 -x 760 -y 300 -defaultsOSRD
+preplace inst mig_7series_0 -pg 1 -lvl 7 -x 2350 -y 280 -defaultsOSRD
+preplace inst mii_to_rmii_0 -pg 1 -lvl 7 -x 2350 -y 550 -defaultsOSRD
+preplace inst rst_clk_wiz_1_100M -pg 1 -lvl 2 -x 400 -y 700 -defaultsOSRD
+preplace inst rst_mig_7series_0_81M -pg 1 -lvl 5 -x 1500 -y 340 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 3 -x 760 -y 590 -defaultsOSRD
+preplace netloc axi_ethernetlite_0_ip2intc_irpt 1 2 5 600 830 NJ 830 NJ 830 1840J 800 2160
+preplace netloc axi_timer_0_interrupt 1 2 3 600 510 940J 440 1230
+preplace netloc clk_wiz_1_clk_out2 1 1 6 NJ 810 NJ 810 NJ 810 NJ 810 NJ 810 2200
+preplace netloc clk_wiz_1_clk_out3 1 1 7 NJ 830 580J 840 NJ 840 NJ 840 1750J 850 2220 940 NJ
+preplace netloc clk_wiz_1_locked 1 1 1 210 740n
+preplace netloc m00_axi_init_axi_txn_1 1 0 5 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ
+preplace netloc mdm_1_debug_sys_rst 1 1 4 220 800 NJ 800 NJ 800 1230
+preplace netloc microblaze_0_Clk 1 1 6 200 500 580 500 960 820 1260 680 1860 780 2170J
+preplace netloc mig_7series_0_mmcm_locked 1 4 4 1260 470 1820J 380 2210J 400 2490
+preplace netloc mig_7series_0_ui_clk 1 4 4 1240 440 1760 370 2220J 380 2480
+preplace netloc mig_7series_0_ui_clk_sync_rst 1 4 4 1250 450 1810J 390 NJ 390 2500
+preplace netloc reset_1 1 0 7 10 680 220 600 580J 790 NJ 790 NJ 790 NJ 790 2180
+preplace netloc rst_clk_wiz_1_100M_bus_struct_reset 1 2 4 NJ 680 920J 780 NJ 780 1840
+preplace netloc rst_clk_wiz_1_100M_interconnect_aresetn 1 2 4 570 100 NJ 100 NJ 100 1760
+preplace netloc rst_clk_wiz_1_100M_mb_reset 1 2 3 NJ 660 970J 640 1250
+preplace netloc rst_clk_wiz_1_100M_peripheral_aresetn 1 2 5 590 520 910 850 1230 850 1850 830 2160J
+preplace netloc rst_mig_7series_0_81M_peripheral_aresetn 1 5 2 1770 360 2190J
+preplace netloc sys_clock_1 1 0 1 NJ 830
+preplace netloc xlconcat_0_dout 1 3 1 970 580n
+preplace netloc Hast_IP_0_M00_AXI 1 5 1 1830 100n
+preplace netloc microblaze_0_axi_periph_M03_AXI 1 3 1 930 280n
+preplace netloc microblaze_0_axi_periph_M04_AXI 1 3 1 930 340n
+preplace netloc microblaze_0_ilmb_1 1 5 1 1790 560n
+preplace netloc microblaze_0_dlmb_1 1 5 1 1820 540n
+preplace netloc microblaze_0_debug 1 4 1 1230 570n
+preplace netloc microblaze_0_axi_periph_M00_AXI 1 3 4 920 220 NJ 220 1800J 840 NJ
+preplace netloc microblaze_0_axi_periph_M01_AXI 1 3 2 920 450 1240J
+preplace netloc microblaze_0_axi_periph_M02_AXI 1 3 3 950 460 NJ 460 1840J
+preplace netloc microblaze_0_M_AXI_IC 1 5 1 1780 80n
+preplace netloc microblaze_0_M_AXI_DP 1 2 4 580 90 NJ 90 NJ 90 1740
+preplace netloc microblaze_0_M_AXI_DC 1 5 1 1750 60n
+preplace netloc axi_mem_intercon_M00_AXI 1 6 1 2180 180n
+preplace netloc axi_ethernetlite_0_MII 1 6 1 2190 450n
+preplace netloc axi_intc_0_interrupt 1 4 1 N 550
+preplace netloc axi_ethernetlite_0_MDIO 1 6 2 NJ 470 NJ
+preplace netloc axi_uartlite_0_UART 1 7 1 NJ 850
+preplace netloc mig_7series_0_DDR2 1 7 1 NJ 240
+preplace netloc mii_to_rmii_0_RMII_PHY_M 1 7 1 NJ 550
+levelinfo -pg 1 -10 110 400 760 1110 1500 2010 2350 2530
+pagesize -pg 1 -db -bbox -sgen -200 0 2690 1070
+"
 }
 
   # Restore current instance
   current_bd_instance $oldCurInst
 
+  validate_bd_design
   save_bd_design
+  close_bd_design $design_name 
 }
-# End of create_root_design()
+# End of cr_bd_Hastlayer()
+cr_bd_Hastlayer ""
+set_property EXCLUDE_DEBUG_LOGIC "0" [get_files Hastlayer.bd ] 
+set_property GENERATE_SYNTH_CHECKPOINT "0" [get_files Hastlayer.bd ] 
+set_property IS_ENABLED "1" [get_files Hastlayer.bd ] 
+set_property IS_GLOBAL_INCLUDE "0" [get_files Hastlayer.bd ] 
+set_property IS_LOCKED "0" [get_files Hastlayer.bd ] 
+set_property LIBRARY "xil_defaultlib" [get_files Hastlayer.bd ] 
+set_property PATH_MODE "RelativeFirst" [get_files Hastlayer.bd ] 
+set_property PFM_NAME "" [get_files Hastlayer.bd ] 
+set_property REGISTERED_WITH_MANAGER "1" [get_files Hastlayer.bd ] 
+set_property SYNTH_CHECKPOINT_MODE "None" [get_files Hastlayer.bd ] 
+set_property USED_IN "synthesis implementation simulation" [get_files Hastlayer.bd ] 
+set_property USED_IN_IMPLEMENTATION "1" [get_files Hastlayer.bd ] 
+set_property USED_IN_SIMULATION "1" [get_files Hastlayer.bd ] 
+set_property USED_IN_SYNTHESIS "1" [get_files Hastlayer.bd ] 
 
+# Create 'synth_1' run (if not found)
+if {[string equal [get_runs -quiet synth_1] ""]} {
+    create_run -name synth_1 -part xc7a100tcsg324-1 -flow {Vivado Synthesis 2019} -strategy "Vivado Synthesis Defaults" -report_strategy {No Reports} -constrset constrs_1
+} else {
+  set_property strategy "Vivado Synthesis Defaults" [get_runs synth_1]
+  set_property flow "Vivado Synthesis 2019" [get_runs synth_1]
+}
+set obj [get_runs synth_1]
+set_property set_report_strategy_name 1 $obj
+set_property report_strategy {Vivado Synthesis Default Reports} $obj
+set_property set_report_strategy_name 0 $obj
+# Create 'synth_1_synth_report_utilization_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs synth_1] synth_1_synth_report_utilization_0] "" ] } {
+  create_report_config -report_name synth_1_synth_report_utilization_0 -report_type report_utilization:1.0 -steps synth_design -runs synth_1
+}
+set obj [get_report_configs -of_objects [get_runs synth_1] synth_1_synth_report_utilization_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.pblocks" -value "" -objects $obj
+set_property -name "options.cells" -value "" -objects $obj
+set_property -name "options.slr" -value "0" -objects $obj
+set_property -name "options.packthru" -value "0" -objects $obj
+set_property -name "options.hierarchical" -value "0" -objects $obj
+set_property -name "options.hierarchical_depth" -value "" -objects $obj
+set_property -name "options.hierarchical_percentages" -value "0" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
 
-##################################################################
-# MAIN FLOW
-##################################################################
+}
+set obj [get_runs synth_1]
+set_property -name "constrset" -value "constrs_1" -objects $obj
+set_property -name "description" -value "Vivado Synthesis Defaults" -objects $obj
+set_property -name "flow" -value "Vivado Synthesis 2019" -objects $obj
+set_property -name "name" -value "synth_1" -objects $obj
+set_property -name "needs_refresh" -value "0" -objects $obj
+set_property -name "srcset" -value "sources_1" -objects $obj
+set_property -name "auto_incremental_checkpoint" -value "0" -objects $obj
+set_property -name "incremental_checkpoint" -value "" -objects $obj
+set_property -name "incremental_checkpoint.more_options" -value "" -objects $obj
+set_property -name "include_in_archive" -value "1" -objects $obj
+set_property -name "gen_full_bitstream" -value "1" -objects $obj
+set_property -name "write_incremental_synth_checkpoint" -value "0" -objects $obj
+set_property -name "strategy" -value "Vivado Synthesis Defaults" -objects $obj
+set_property -name "steps.synth_design.tcl.pre" -value "" -objects $obj
+set_property -name "steps.synth_design.tcl.post" -value "" -objects $obj
+set_property -name "steps.synth_design.args.flatten_hierarchy" -value "rebuilt" -objects $obj
+set_property -name "steps.synth_design.args.gated_clock_conversion" -value "off" -objects $obj
+set_property -name "steps.synth_design.args.bufg" -value "12" -objects $obj
+set_property -name "steps.synth_design.args.fanout_limit" -value "10000" -objects $obj
+set_property -name "steps.synth_design.args.directive" -value "Default" -objects $obj
+set_property -name "steps.synth_design.args.retiming" -value "0" -objects $obj
+set_property -name "steps.synth_design.args.fsm_extraction" -value "auto" -objects $obj
+set_property -name "steps.synth_design.args.keep_equivalent_registers" -value "0" -objects $obj
+set_property -name "steps.synth_design.args.resource_sharing" -value "auto" -objects $obj
+set_property -name "steps.synth_design.args.control_set_opt_threshold" -value "auto" -objects $obj
+set_property -name "steps.synth_design.args.no_lc" -value "0" -objects $obj
+set_property -name "steps.synth_design.args.no_srlextract" -value "0" -objects $obj
+set_property -name "steps.synth_design.args.shreg_min_size" -value "3" -objects $obj
+set_property -name "steps.synth_design.args.max_bram" -value "-1" -objects $obj
+set_property -name "steps.synth_design.args.max_uram" -value "-1" -objects $obj
+set_property -name "steps.synth_design.args.max_dsp" -value "-1" -objects $obj
+set_property -name "steps.synth_design.args.max_bram_cascade_height" -value "-1" -objects $obj
+set_property -name "steps.synth_design.args.max_uram_cascade_height" -value "-1" -objects $obj
+set_property -name "steps.synth_design.args.cascade_dsp" -value "auto" -objects $obj
+set_property -name "steps.synth_design.args.assert" -value "0" -objects $obj
+set_property -name "steps.synth_design.args.more options" -value "" -objects $obj
 
-create_root_design ""
+# set the current synth run
+current_run -synthesis [get_runs synth_1]
 
+# Create 'impl_1' run (if not found)
+if {[string equal [get_runs -quiet impl_1] ""]} {
+    create_run -name impl_1 -part xc7a100tcsg324-1 -flow {Vivado Implementation 2019} -strategy "Vivado Implementation Defaults" -report_strategy {No Reports} -constrset constrs_1 -parent_run synth_1
+} else {
+  set_property strategy "Vivado Implementation Defaults" [get_runs impl_1]
+  set_property flow "Vivado Implementation 2019" [get_runs impl_1]
+}
+set obj [get_runs impl_1]
+set_property set_report_strategy_name 1 $obj
+set_property report_strategy {Vivado Implementation Default Reports} $obj
+set_property set_report_strategy_name 0 $obj
+# Create 'impl_1_init_report_timing_summary_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_init_report_timing_summary_0] "" ] } {
+  create_report_config -report_name impl_1_init_report_timing_summary_0 -report_type report_timing_summary:1.0 -steps init_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_init_report_timing_summary_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "0" -objects $obj
+set_property -name "options.check_timing_verbose" -value "0" -objects $obj
+set_property -name "options.delay_type" -value "" -objects $obj
+set_property -name "options.setup" -value "0" -objects $obj
+set_property -name "options.hold" -value "0" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
+set_property -name "options.nworst" -value "" -objects $obj
+set_property -name "options.unique_pins" -value "0" -objects $obj
+set_property -name "options.path_type" -value "" -objects $obj
+set_property -name "options.slack_lesser_than" -value "" -objects $obj
+set_property -name "options.report_unconstrained" -value "0" -objects $obj
+set_property -name "options.warn_on_violation" -value "0" -objects $obj
+set_property -name "options.significant_digits" -value "" -objects $obj
+set_property -name "options.cell" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
 
+}
+# Create 'impl_1_opt_report_drc_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_opt_report_drc_0] "" ] } {
+  create_report_config -report_name impl_1_opt_report_drc_0 -report_type report_drc:1.0 -steps opt_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_opt_report_drc_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.upgrade_cw" -value "0" -objects $obj
+set_property -name "options.checks" -value "" -objects $obj
+set_property -name "options.ruledecks" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_opt_report_timing_summary_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_opt_report_timing_summary_0] "" ] } {
+  create_report_config -report_name impl_1_opt_report_timing_summary_0 -report_type report_timing_summary:1.0 -steps opt_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_opt_report_timing_summary_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "0" -objects $obj
+set_property -name "options.check_timing_verbose" -value "0" -objects $obj
+set_property -name "options.delay_type" -value "" -objects $obj
+set_property -name "options.setup" -value "0" -objects $obj
+set_property -name "options.hold" -value "0" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
+set_property -name "options.nworst" -value "" -objects $obj
+set_property -name "options.unique_pins" -value "0" -objects $obj
+set_property -name "options.path_type" -value "" -objects $obj
+set_property -name "options.slack_lesser_than" -value "" -objects $obj
+set_property -name "options.report_unconstrained" -value "0" -objects $obj
+set_property -name "options.warn_on_violation" -value "0" -objects $obj
+set_property -name "options.significant_digits" -value "" -objects $obj
+set_property -name "options.cell" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_power_opt_report_timing_summary_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_power_opt_report_timing_summary_0] "" ] } {
+  create_report_config -report_name impl_1_power_opt_report_timing_summary_0 -report_type report_timing_summary:1.0 -steps power_opt_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_power_opt_report_timing_summary_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "0" -objects $obj
+set_property -name "options.check_timing_verbose" -value "0" -objects $obj
+set_property -name "options.delay_type" -value "" -objects $obj
+set_property -name "options.setup" -value "0" -objects $obj
+set_property -name "options.hold" -value "0" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
+set_property -name "options.nworst" -value "" -objects $obj
+set_property -name "options.unique_pins" -value "0" -objects $obj
+set_property -name "options.path_type" -value "" -objects $obj
+set_property -name "options.slack_lesser_than" -value "" -objects $obj
+set_property -name "options.report_unconstrained" -value "0" -objects $obj
+set_property -name "options.warn_on_violation" -value "0" -objects $obj
+set_property -name "options.significant_digits" -value "" -objects $obj
+set_property -name "options.cell" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_place_report_io_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_io_0] "" ] } {
+  create_report_config -report_name impl_1_place_report_io_0 -report_type report_io:1.0 -steps place_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_io_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_place_report_utilization_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_utilization_0] "" ] } {
+  create_report_config -report_name impl_1_place_report_utilization_0 -report_type report_utilization:1.0 -steps place_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_utilization_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.pblocks" -value "" -objects $obj
+set_property -name "options.cells" -value "" -objects $obj
+set_property -name "options.slr" -value "0" -objects $obj
+set_property -name "options.packthru" -value "0" -objects $obj
+set_property -name "options.hierarchical" -value "0" -objects $obj
+set_property -name "options.hierarchical_depth" -value "" -objects $obj
+set_property -name "options.hierarchical_percentages" -value "0" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_place_report_control_sets_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_control_sets_0] "" ] } {
+  create_report_config -report_name impl_1_place_report_control_sets_0 -report_type report_control_sets:1.0 -steps place_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_control_sets_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.verbose" -value "1" -objects $obj
+set_property -name "options.cells" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_place_report_incremental_reuse_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_incremental_reuse_0] "" ] } {
+  create_report_config -report_name impl_1_place_report_incremental_reuse_0 -report_type report_incremental_reuse:1.0 -steps place_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_incremental_reuse_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "0" -objects $obj
+set_property -name "options.cells" -value "" -objects $obj
+set_property -name "options.hierarchical" -value "0" -objects $obj
+set_property -name "options.hierarchical_depth" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_place_report_incremental_reuse_1' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_incremental_reuse_1] "" ] } {
+  create_report_config -report_name impl_1_place_report_incremental_reuse_1 -report_type report_incremental_reuse:1.0 -steps place_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_incremental_reuse_1]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "0" -objects $obj
+set_property -name "options.cells" -value "" -objects $obj
+set_property -name "options.hierarchical" -value "0" -objects $obj
+set_property -name "options.hierarchical_depth" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_place_report_timing_summary_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_timing_summary_0] "" ] } {
+  create_report_config -report_name impl_1_place_report_timing_summary_0 -report_type report_timing_summary:1.0 -steps place_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_timing_summary_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "0" -objects $obj
+set_property -name "options.check_timing_verbose" -value "0" -objects $obj
+set_property -name "options.delay_type" -value "" -objects $obj
+set_property -name "options.setup" -value "0" -objects $obj
+set_property -name "options.hold" -value "0" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
+set_property -name "options.nworst" -value "" -objects $obj
+set_property -name "options.unique_pins" -value "0" -objects $obj
+set_property -name "options.path_type" -value "" -objects $obj
+set_property -name "options.slack_lesser_than" -value "" -objects $obj
+set_property -name "options.report_unconstrained" -value "0" -objects $obj
+set_property -name "options.warn_on_violation" -value "0" -objects $obj
+set_property -name "options.significant_digits" -value "" -objects $obj
+set_property -name "options.cell" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_post_place_power_opt_report_timing_summary_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_post_place_power_opt_report_timing_summary_0] "" ] } {
+  create_report_config -report_name impl_1_post_place_power_opt_report_timing_summary_0 -report_type report_timing_summary:1.0 -steps post_place_power_opt_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_post_place_power_opt_report_timing_summary_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "0" -objects $obj
+set_property -name "options.check_timing_verbose" -value "0" -objects $obj
+set_property -name "options.delay_type" -value "" -objects $obj
+set_property -name "options.setup" -value "0" -objects $obj
+set_property -name "options.hold" -value "0" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
+set_property -name "options.nworst" -value "" -objects $obj
+set_property -name "options.unique_pins" -value "0" -objects $obj
+set_property -name "options.path_type" -value "" -objects $obj
+set_property -name "options.slack_lesser_than" -value "" -objects $obj
+set_property -name "options.report_unconstrained" -value "0" -objects $obj
+set_property -name "options.warn_on_violation" -value "0" -objects $obj
+set_property -name "options.significant_digits" -value "" -objects $obj
+set_property -name "options.cell" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_phys_opt_report_timing_summary_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_phys_opt_report_timing_summary_0] "" ] } {
+  create_report_config -report_name impl_1_phys_opt_report_timing_summary_0 -report_type report_timing_summary:1.0 -steps phys_opt_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_phys_opt_report_timing_summary_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "0" -objects $obj
+set_property -name "options.check_timing_verbose" -value "0" -objects $obj
+set_property -name "options.delay_type" -value "" -objects $obj
+set_property -name "options.setup" -value "0" -objects $obj
+set_property -name "options.hold" -value "0" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
+set_property -name "options.nworst" -value "" -objects $obj
+set_property -name "options.unique_pins" -value "0" -objects $obj
+set_property -name "options.path_type" -value "" -objects $obj
+set_property -name "options.slack_lesser_than" -value "" -objects $obj
+set_property -name "options.report_unconstrained" -value "0" -objects $obj
+set_property -name "options.warn_on_violation" -value "0" -objects $obj
+set_property -name "options.significant_digits" -value "" -objects $obj
+set_property -name "options.cell" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_route_report_drc_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_drc_0] "" ] } {
+  create_report_config -report_name impl_1_route_report_drc_0 -report_type report_drc:1.0 -steps route_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_drc_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.upgrade_cw" -value "0" -objects $obj
+set_property -name "options.checks" -value "" -objects $obj
+set_property -name "options.ruledecks" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_route_report_methodology_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_methodology_0] "" ] } {
+  create_report_config -report_name impl_1_route_report_methodology_0 -report_type report_methodology:1.0 -steps route_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_methodology_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.checks" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_route_report_power_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_power_0] "" ] } {
+  create_report_config -report_name impl_1_route_report_power_0 -report_type report_power:1.0 -steps route_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_power_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.advisory" -value "0" -objects $obj
+set_property -name "options.xpe" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_route_report_route_status_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_route_status_0] "" ] } {
+  create_report_config -report_name impl_1_route_report_route_status_0 -report_type report_route_status:1.0 -steps route_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_route_status_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.of_objects" -value "" -objects $obj
+set_property -name "options.route_type" -value "" -objects $obj
+set_property -name "options.list_all_nets" -value "0" -objects $obj
+set_property -name "options.show_all" -value "0" -objects $obj
+set_property -name "options.has_routing" -value "0" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_route_report_timing_summary_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_timing_summary_0] "" ] } {
+  create_report_config -report_name impl_1_route_report_timing_summary_0 -report_type report_timing_summary:1.0 -steps route_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_timing_summary_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.check_timing_verbose" -value "0" -objects $obj
+set_property -name "options.delay_type" -value "" -objects $obj
+set_property -name "options.setup" -value "0" -objects $obj
+set_property -name "options.hold" -value "0" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
+set_property -name "options.nworst" -value "" -objects $obj
+set_property -name "options.unique_pins" -value "0" -objects $obj
+set_property -name "options.path_type" -value "" -objects $obj
+set_property -name "options.slack_lesser_than" -value "" -objects $obj
+set_property -name "options.report_unconstrained" -value "0" -objects $obj
+set_property -name "options.warn_on_violation" -value "0" -objects $obj
+set_property -name "options.significant_digits" -value "" -objects $obj
+set_property -name "options.cell" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_route_report_incremental_reuse_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_incremental_reuse_0] "" ] } {
+  create_report_config -report_name impl_1_route_report_incremental_reuse_0 -report_type report_incremental_reuse:1.0 -steps route_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_incremental_reuse_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.cells" -value "" -objects $obj
+set_property -name "options.hierarchical" -value "0" -objects $obj
+set_property -name "options.hierarchical_depth" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_route_report_clock_utilization_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_clock_utilization_0] "" ] } {
+  create_report_config -report_name impl_1_route_report_clock_utilization_0 -report_type report_clock_utilization:1.0 -steps route_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_clock_utilization_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.write_xdc" -value "0" -objects $obj
+set_property -name "options.clock_roots_only" -value "0" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_route_report_bus_skew_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_bus_skew_0] "" ] } {
+  create_report_config -report_name impl_1_route_report_bus_skew_0 -report_type report_bus_skew:1.1 -steps route_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_route_report_bus_skew_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.delay_type" -value "" -objects $obj
+set_property -name "options.setup" -value "0" -objects $obj
+set_property -name "options.hold" -value "0" -objects $obj
+set_property -name "options.max_paths" -value "" -objects $obj
+set_property -name "options.nworst" -value "" -objects $obj
+set_property -name "options.unique_pins" -value "0" -objects $obj
+set_property -name "options.path_type" -value "" -objects $obj
+set_property -name "options.slack_lesser_than" -value "" -objects $obj
+set_property -name "options.slack_greater_than" -value "" -objects $obj
+set_property -name "options.significant_digits" -value "" -objects $obj
+set_property -name "options.warn_on_violation" -value "1" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_post_route_phys_opt_report_timing_summary_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_post_route_phys_opt_report_timing_summary_0] "" ] } {
+  create_report_config -report_name impl_1_post_route_phys_opt_report_timing_summary_0 -report_type report_timing_summary:1.0 -steps post_route_phys_opt_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_post_route_phys_opt_report_timing_summary_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.check_timing_verbose" -value "0" -objects $obj
+set_property -name "options.delay_type" -value "" -objects $obj
+set_property -name "options.setup" -value "0" -objects $obj
+set_property -name "options.hold" -value "0" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
+set_property -name "options.nworst" -value "" -objects $obj
+set_property -name "options.unique_pins" -value "0" -objects $obj
+set_property -name "options.path_type" -value "" -objects $obj
+set_property -name "options.slack_lesser_than" -value "" -objects $obj
+set_property -name "options.report_unconstrained" -value "0" -objects $obj
+set_property -name "options.warn_on_violation" -value "1" -objects $obj
+set_property -name "options.significant_digits" -value "" -objects $obj
+set_property -name "options.cell" -value "" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+# Create 'impl_1_post_route_phys_opt_report_bus_skew_0' report (if not found)
+if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_post_route_phys_opt_report_bus_skew_0] "" ] } {
+  create_report_config -report_name impl_1_post_route_phys_opt_report_bus_skew_0 -report_type report_bus_skew:1.1 -steps post_route_phys_opt_design -runs impl_1
+}
+set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_post_route_phys_opt_report_bus_skew_0]
+if { $obj != "" } {
+set_property -name "is_enabled" -value "1" -objects $obj
+set_property -name "options.delay_type" -value "" -objects $obj
+set_property -name "options.setup" -value "0" -objects $obj
+set_property -name "options.hold" -value "0" -objects $obj
+set_property -name "options.max_paths" -value "" -objects $obj
+set_property -name "options.nworst" -value "" -objects $obj
+set_property -name "options.unique_pins" -value "0" -objects $obj
+set_property -name "options.path_type" -value "" -objects $obj
+set_property -name "options.slack_lesser_than" -value "" -objects $obj
+set_property -name "options.slack_greater_than" -value "" -objects $obj
+set_property -name "options.significant_digits" -value "" -objects $obj
+set_property -name "options.warn_on_violation" -value "1" -objects $obj
+set_property -name "options.more_options" -value "" -objects $obj
+
+}
+set obj [get_runs impl_1]
+set_property -name "constrset" -value "constrs_1" -objects $obj
+set_property -name "description" -value "Default settings for Implementation." -objects $obj
+set_property -name "flow" -value "Vivado Implementation 2019" -objects $obj
+set_property -name "name" -value "impl_1" -objects $obj
+set_property -name "needs_refresh" -value "0" -objects $obj
+set_property -name "pr_configuration" -value "" -objects $obj
+set_property -name "srcset" -value "sources_1" -objects $obj
+set_property -name "auto_incremental_checkpoint" -value "0" -objects $obj
+set_property -name "incremental_checkpoint" -value "" -objects $obj
+set_property -name "incremental_checkpoint.more_options" -value "" -objects $obj
+set_property -name "include_in_archive" -value "1" -objects $obj
+set_property -name "gen_full_bitstream" -value "1" -objects $obj
+set_property -name "strategy" -value "Vivado Implementation Defaults" -objects $obj
+set_property -name "steps.init_design.tcl.pre" -value "" -objects $obj
+set_property -name "steps.init_design.tcl.post" -value "" -objects $obj
+set_property -name "steps.opt_design.is_enabled" -value "1" -objects $obj
+set_property -name "steps.opt_design.tcl.pre" -value "" -objects $obj
+set_property -name "steps.opt_design.tcl.post" -value "" -objects $obj
+set_property -name "steps.opt_design.args.verbose" -value "0" -objects $obj
+set_property -name "steps.opt_design.args.directive" -value "Default" -objects $obj
+set_property -name "steps.opt_design.args.more options" -value "" -objects $obj
+set_property -name "steps.power_opt_design.is_enabled" -value "0" -objects $obj
+set_property -name "steps.power_opt_design.tcl.pre" -value "" -objects $obj
+set_property -name "steps.power_opt_design.tcl.post" -value "" -objects $obj
+set_property -name "steps.power_opt_design.args.more options" -value "" -objects $obj
+set_property -name "steps.place_design.tcl.pre" -value "" -objects $obj
+set_property -name "steps.place_design.tcl.post" -value "" -objects $obj
+set_property -name "steps.place_design.args.directive" -value "Default" -objects $obj
+set_property -name "steps.place_design.args.more options" -value "" -objects $obj
+set_property -name "steps.post_place_power_opt_design.is_enabled" -value "0" -objects $obj
+set_property -name "steps.post_place_power_opt_design.tcl.pre" -value "" -objects $obj
+set_property -name "steps.post_place_power_opt_design.tcl.post" -value "" -objects $obj
+set_property -name "steps.post_place_power_opt_design.args.more options" -value "" -objects $obj
+set_property -name "steps.phys_opt_design.is_enabled" -value "0" -objects $obj
+set_property -name "steps.phys_opt_design.tcl.pre" -value "" -objects $obj
+set_property -name "steps.phys_opt_design.tcl.post" -value "" -objects $obj
+set_property -name "steps.phys_opt_design.args.directive" -value "Default" -objects $obj
+set_property -name "steps.phys_opt_design.args.more options" -value "" -objects $obj
+set_property -name "steps.route_design.tcl.pre" -value "" -objects $obj
+set_property -name "steps.route_design.tcl.post" -value "" -objects $obj
+set_property -name "steps.route_design.args.directive" -value "Default" -objects $obj
+set_property -name "steps.route_design.args.more options" -value "" -objects $obj
+set_property -name "steps.post_route_phys_opt_design.is_enabled" -value "0" -objects $obj
+set_property -name "steps.post_route_phys_opt_design.tcl.pre" -value "" -objects $obj
+set_property -name "steps.post_route_phys_opt_design.tcl.post" -value "" -objects $obj
+set_property -name "steps.post_route_phys_opt_design.args.directive" -value "Default" -objects $obj
+set_property -name "steps.post_route_phys_opt_design.args.more options" -value "" -objects $obj
+set_property -name "steps.write_bitstream.tcl.pre" -value "" -objects $obj
+set_property -name "steps.write_bitstream.tcl.post" -value "" -objects $obj
+set_property -name "steps.write_bitstream.args.raw_bitfile" -value "0" -objects $obj
+set_property -name "steps.write_bitstream.args.mask_file" -value "0" -objects $obj
+set_property -name "steps.write_bitstream.args.no_binary_bitfile" -value "0" -objects $obj
+set_property -name "steps.write_bitstream.args.bin_file" -value "0" -objects $obj
+set_property -name "steps.write_bitstream.args.readback_file" -value "0" -objects $obj
+set_property -name "steps.write_bitstream.args.logic_location_file" -value "0" -objects $obj
+set_property -name "steps.write_bitstream.args.verbose" -value "0" -objects $obj
+set_property -name "steps.write_bitstream.args.more options" -value "" -objects $obj
+
+# set the current impl run
+current_run -implementation [get_runs impl_1]
+
+puts "INFO: Project created:${_xil_proj_name_}"
+# Create 'drc_1' gadget (if not found)
+if {[string equal [get_dashboard_gadgets  [ list "drc_1" ] ] ""]} {
+create_dashboard_gadget -name {drc_1} -type drc
+}
+set obj [get_dashboard_gadgets [ list "drc_1" ] ]
+set_property -name "active_reports" -value "" -objects $obj
+set_property -name "active_reports_invalid" -value "" -objects $obj
+set_property -name "active_run" -value "0" -objects $obj
+set_property -name "hide_unused_data" -value "1" -objects $obj
+set_property -name "incl_new_reports" -value "0" -objects $obj
+set_property -name "reports" -value "impl_1#impl_1_route_report_drc_0" -objects $obj
+set_property -name "run.step" -value "route_design" -objects $obj
+set_property -name "run.type" -value "implementation" -objects $obj
+set_property -name "statistics.critical_warning" -value "1" -objects $obj
+set_property -name "statistics.error" -value "1" -objects $obj
+set_property -name "statistics.info" -value "1" -objects $obj
+set_property -name "statistics.warning" -value "1" -objects $obj
+set_property -name "view.orientation" -value "Horizontal" -objects $obj
+set_property -name "view.type" -value "Graph" -objects $obj
+
+# Create 'methodology_1' gadget (if not found)
+if {[string equal [get_dashboard_gadgets  [ list "methodology_1" ] ] ""]} {
+create_dashboard_gadget -name {methodology_1} -type methodology
+}
+set obj [get_dashboard_gadgets [ list "methodology_1" ] ]
+set_property -name "active_reports" -value "" -objects $obj
+set_property -name "active_reports_invalid" -value "" -objects $obj
+set_property -name "active_run" -value "0" -objects $obj
+set_property -name "hide_unused_data" -value "1" -objects $obj
+set_property -name "incl_new_reports" -value "0" -objects $obj
+set_property -name "reports" -value "impl_1#impl_1_route_report_methodology_0" -objects $obj
+set_property -name "run.step" -value "route_design" -objects $obj
+set_property -name "run.type" -value "implementation" -objects $obj
+set_property -name "statistics.critical_warning" -value "1" -objects $obj
+set_property -name "statistics.error" -value "1" -objects $obj
+set_property -name "statistics.info" -value "1" -objects $obj
+set_property -name "statistics.warning" -value "1" -objects $obj
+set_property -name "view.orientation" -value "Horizontal" -objects $obj
+set_property -name "view.type" -value "Graph" -objects $obj
+
+# Create 'power_1' gadget (if not found)
+if {[string equal [get_dashboard_gadgets  [ list "power_1" ] ] ""]} {
+create_dashboard_gadget -name {power_1} -type power
+}
+set obj [get_dashboard_gadgets [ list "power_1" ] ]
+set_property -name "active_reports" -value "" -objects $obj
+set_property -name "active_reports_invalid" -value "" -objects $obj
+set_property -name "active_run" -value "0" -objects $obj
+set_property -name "hide_unused_data" -value "1" -objects $obj
+set_property -name "incl_new_reports" -value "0" -objects $obj
+set_property -name "reports" -value "impl_1#impl_1_route_report_power_0" -objects $obj
+set_property -name "run.step" -value "route_design" -objects $obj
+set_property -name "run.type" -value "implementation" -objects $obj
+set_property -name "statistics.bram" -value "1" -objects $obj
+set_property -name "statistics.clocks" -value "1" -objects $obj
+set_property -name "statistics.dsp" -value "1" -objects $obj
+set_property -name "statistics.gth" -value "1" -objects $obj
+set_property -name "statistics.gtp" -value "1" -objects $obj
+set_property -name "statistics.gtx" -value "1" -objects $obj
+set_property -name "statistics.gtz" -value "1" -objects $obj
+set_property -name "statistics.io" -value "1" -objects $obj
+set_property -name "statistics.logic" -value "1" -objects $obj
+set_property -name "statistics.mmcm" -value "1" -objects $obj
+set_property -name "statistics.pcie" -value "1" -objects $obj
+set_property -name "statistics.phaser" -value "1" -objects $obj
+set_property -name "statistics.pll" -value "1" -objects $obj
+set_property -name "statistics.pl_static" -value "1" -objects $obj
+set_property -name "statistics.ps7" -value "1" -objects $obj
+set_property -name "statistics.ps" -value "1" -objects $obj
+set_property -name "statistics.ps_static" -value "1" -objects $obj
+set_property -name "statistics.signals" -value "1" -objects $obj
+set_property -name "statistics.total_power" -value "1" -objects $obj
+set_property -name "statistics.transceiver" -value "1" -objects $obj
+set_property -name "statistics.xadc" -value "1" -objects $obj
+set_property -name "view.orientation" -value "Horizontal" -objects $obj
+set_property -name "view.type" -value "Graph" -objects $obj
+
+# Create 'timing_1' gadget (if not found)
+if {[string equal [get_dashboard_gadgets  [ list "timing_1" ] ] ""]} {
+create_dashboard_gadget -name {timing_1} -type timing
+}
+set obj [get_dashboard_gadgets [ list "timing_1" ] ]
+set_property -name "active_reports" -value "" -objects $obj
+set_property -name "active_reports_invalid" -value "" -objects $obj
+set_property -name "active_run" -value "0" -objects $obj
+set_property -name "hide_unused_data" -value "1" -objects $obj
+set_property -name "incl_new_reports" -value "0" -objects $obj
+set_property -name "reports" -value "impl_1#impl_1_route_report_timing_summary_0" -objects $obj
+set_property -name "run.step" -value "route_design" -objects $obj
+set_property -name "run.type" -value "implementation" -objects $obj
+set_property -name "statistics.ths" -value "1" -objects $obj
+set_property -name "statistics.tns" -value "1" -objects $obj
+set_property -name "statistics.tpws" -value "1" -objects $obj
+set_property -name "statistics.whs" -value "1" -objects $obj
+set_property -name "statistics.wns" -value "1" -objects $obj
+set_property -name "view.orientation" -value "Horizontal" -objects $obj
+set_property -name "view.type" -value "Table" -objects $obj
+
+# Create 'utilization_1' gadget (if not found)
+if {[string equal [get_dashboard_gadgets  [ list "utilization_1" ] ] ""]} {
+create_dashboard_gadget -name {utilization_1} -type utilization
+}
+set obj [get_dashboard_gadgets [ list "utilization_1" ] ]
+set_property -name "active_reports" -value "" -objects $obj
+set_property -name "active_reports_invalid" -value "" -objects $obj
+set_property -name "active_run" -value "0" -objects $obj
+set_property -name "hide_unused_data" -value "1" -objects $obj
+set_property -name "incl_new_reports" -value "0" -objects $obj
+set_property -name "reports" -value "synth_1#synth_1_synth_report_utilization_0" -objects $obj
+set_property -name "run.step" -value "synth_design" -objects $obj
+set_property -name "run.type" -value "synthesis" -objects $obj
+set_property -name "statistics.bram" -value "1" -objects $obj
+set_property -name "statistics.bufg" -value "1" -objects $obj
+set_property -name "statistics.dsp" -value "1" -objects $obj
+set_property -name "statistics.ff" -value "1" -objects $obj
+set_property -name "statistics.gt" -value "1" -objects $obj
+set_property -name "statistics.io" -value "1" -objects $obj
+set_property -name "statistics.lut" -value "1" -objects $obj
+set_property -name "statistics.lutram" -value "1" -objects $obj
+set_property -name "statistics.mmcm" -value "1" -objects $obj
+set_property -name "statistics.pcie" -value "1" -objects $obj
+set_property -name "statistics.pll" -value "1" -objects $obj
+set_property -name "statistics.uram" -value "1" -objects $obj
+set_property -name "view.orientation" -value "Horizontal" -objects $obj
+set_property -name "view.type" -value "Graph" -objects $obj
+
+# Create 'utilization_2' gadget (if not found)
+if {[string equal [get_dashboard_gadgets  [ list "utilization_2" ] ] ""]} {
+create_dashboard_gadget -name {utilization_2} -type utilization
+}
+set obj [get_dashboard_gadgets [ list "utilization_2" ] ]
+set_property -name "active_reports" -value "" -objects $obj
+set_property -name "active_reports_invalid" -value "" -objects $obj
+set_property -name "active_run" -value "0" -objects $obj
+set_property -name "hide_unused_data" -value "1" -objects $obj
+set_property -name "incl_new_reports" -value "0" -objects $obj
+set_property -name "reports" -value "impl_1#impl_1_place_report_utilization_0" -objects $obj
+set_property -name "run.step" -value "place_design" -objects $obj
+set_property -name "run.type" -value "implementation" -objects $obj
+set_property -name "statistics.bram" -value "1" -objects $obj
+set_property -name "statistics.bufg" -value "1" -objects $obj
+set_property -name "statistics.dsp" -value "1" -objects $obj
+set_property -name "statistics.ff" -value "1" -objects $obj
+set_property -name "statistics.gt" -value "1" -objects $obj
+set_property -name "statistics.io" -value "1" -objects $obj
+set_property -name "statistics.lut" -value "1" -objects $obj
+set_property -name "statistics.lutram" -value "1" -objects $obj
+set_property -name "statistics.mmcm" -value "1" -objects $obj
+set_property -name "statistics.pcie" -value "1" -objects $obj
+set_property -name "statistics.pll" -value "1" -objects $obj
+set_property -name "statistics.uram" -value "1" -objects $obj
+set_property -name "view.orientation" -value "Horizontal" -objects $obj
+set_property -name "view.type" -value "Graph" -objects $obj
+
+move_dashboard_gadget -name {utilization_1} -row 0 -col 0
+move_dashboard_gadget -name {power_1} -row 1 -col 0
+move_dashboard_gadget -name {drc_1} -row 2 -col 0
+move_dashboard_gadget -name {timing_1} -row 0 -col 1
+move_dashboard_gadget -name {utilization_2} -row 1 -col 1
+move_dashboard_gadget -name {methodology_1} -row 2 -col 1
