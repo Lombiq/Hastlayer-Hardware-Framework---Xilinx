@@ -4,7 +4,7 @@
 #include "netif/xadapter.h"
 #include "../../Platform.h"
 #include "lwip/init.h"
-#include "lwip/tcp_impl.h"
+#include "lwip/tcp.h"
 #include "../../Constants/EthernetCommunicationConstants.h"
 #include "lwip/udp.h"
 #include "../../Models/IpEndpoint.h"

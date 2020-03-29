@@ -11,11 +11,11 @@ namespace HastlayerOperatingSystem
 class IpEndpoint
 {
 public:
-   ip_addr* IpAddress;
+   ip4_addr* IpAddress;
    int Port;
 
    IpEndpoint(byte segment1, byte segment2, byte segment3, byte segment4, int port);
-   IpEndpoint(ip_addr* address, int port);
+   IpEndpoint(ip4_addr* address, int port);
 };
 
 } /* namespace HastlayerOperatingSystem */
