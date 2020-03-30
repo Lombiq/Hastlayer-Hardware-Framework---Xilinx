@@ -4,7 +4,7 @@
 namespace HastlayerOperatingSystem
 {
 
-static void UdpEchoServerReceiveCallback(void *udpArgument, struct udp_pcb *controlBlock, struct pbuf *buffer, struct ip_addr *ipAddress, u16_t port)
+static void UdpEchoServerReceiveCallback(void *udpArgument, struct udp_pcb *controlBlock, struct pbuf *buffer, const ip4_addr *ipAddress, u16_t port)
 {
 	// Don't read the packet if we are not in ESTABLISHED state.
     if (buffer != NULL)
