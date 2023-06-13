@@ -1,11 +1,10 @@
 # Hastlayer Hardware Framework - Xilinx readme
 
-
-
 This document is a guideline which provides a brief description of the **Hastlayer Hardware Framework** for Xilinx FPGAs. The aim of this document is to help the reader to reconstruct and test the **Hastlayer FPGA firmware design** and to give a hand when you run into a problem.
 
 If you're not familiar with Hastlayer take a look at [https://hastlayer.com/](https://hastlayer.com/).
 
+**Note** that unfortunately, due to the compatibility of the FPGA development software Vivado, this project only works up to Windows 10, but not with Windows 11.
 
 ## Table of contents
 
