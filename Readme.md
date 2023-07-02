@@ -4,7 +4,7 @@ This document is a guideline which provides a brief description of the **Hastlay
 
 If you're not familiar with Hastlayer take a look at [https://hastlayer.com/](https://hastlayer.com/).
 
-**Note** that unfortunately, due to the compatibility of the FPGA development software Vivado, this project only works up to Windows 10, but not with Windows 11.
+**Note** that unfortunately, due to the compatibility of the FPGA development software Vivado, this project only works up to Windows 10, but not with Windows 11. Running Vivado in Windows 8 compatibility mode (configuring this for _C:\Xilinx\Vivado\2016.4\bin\unwrapped\win64.o\vivado.exe_ and _C:\Xilinx\Vivado\2016.4\bin\unwrapped\win64.o\vvgl.exe_) doesn't help.
 
 ## Table of contents
 
